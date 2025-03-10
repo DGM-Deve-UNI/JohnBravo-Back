@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('fontSize', fontSize);
     });
 
-    // Chamar fecharEVoltar ao clicar em um botão de fechar o modal
+    // Chamar fechar e voltar ao clicar em um botão de fechar o modal
     const closeButton = document.getElementById('closeModalButton');
     if (closeButton) {
         closeButton.addEventListener('click', fecharEVoltar);

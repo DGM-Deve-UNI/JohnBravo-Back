@@ -1,13 +1,16 @@
-# DGM Projetos
+# DGM Projetos - JohnBravo-Back
 
-Repositório de projetos do grupo DGM Unisuam 2024.2
+Repositório de projetos do grupo DGM Unisuam 2025.1 - BACK-END
 
-    Status: Finalizado
+Projeto de Back-end do curso de ADS 2025.1 - Segundo semestre - Back-End - Site base Front-End *JohnBravo*
+
+    Status: Iniciado
 
 ----------------------------------------------
 
 # Projeto UNISUAM do Site "JahnBravo Barbearia"
-
+### *iniciando o back-end. . .*
+---
 ### --= Analise e desenvolvimento de sistemas =--
 
 ----------------------------------------------
@@ -26,13 +29,13 @@ Repositório de projetos do grupo DGM Unisuam 2024.2
 
 ----------------------------------------------
 
-## Projeto finalizado em *23/11/2024 - 23:23*
+## Projeto Iniciado em **
 
 ----------------------------------------------
 
-Bem-vindo ao projeto do site JonBravo Barbearia desenvolvido pelo grupo DGM Web Developer (Grupo 03) como parte do programa da Universidade Unisuam no curso de Análise e Desenvolvimento de Sistemas. Este projeto foi criado para demonstrar as habilidades e conhecimentos adquiridos em HTML, CSS, JavaScript e frameworks.
+Bem-vindo ao projeto do site JonBravo Barbearia desenvolvido pelo grupo DGM Web Developer (Grupo 03) como parte do programa da Universidade Unisuam no curso de Análise e Desenvolvimento de Sistemas. Agora iniciando o estudo de Back-end usando PHP, MySQL e Apache via XAMPP.
 
-## Objetivo
+<!-- ## Objetivo
 
 O objetivo principal do projeto é construir a parte do Front-End de um site que fosse funcional e responsivo e que tivesse identidade própria e personalizada e com serviços exclusivos, oferecendo uma experiência agradável aos usuários. Foram implementadas as seguintes funcionalidades:
 
@@ -55,11 +58,7 @@ O objetivo principal do projeto é construir a parte do Front-End de um site que
 - Frameworks (Bootstrap e MDB): Utilizado para acelerar o desenvolvimento e fornece recursos adicionais ao projeto.
 
 - Bibliotecas: Foram usadas bibliotecas como a Font Awesome (biblioteca de ícones)<!--,  jQuery (biblioteca JavaScript) e iziToast (biblioteca JavaScript para notificações). -->
-Essas bibliotecas foram incorporadas ao projeto para fornecer recursos adicionais e facilitar o desenvolvimento de determinadas funcionalidades, como manipulação do DOM, interação com o usuário e exibição de notificações.
-
-<!-- ## Resultados Alcançados
-
-O projeto foi concluído com sucesso, atendendo a todos os requisitos e funcionalidades solicitadas. Com a aplicação dos conhecimentos adquiridos, conseguimos criar um site profissional, funcional e esteticamente agradável. O site oferece uma experiência envolvente aos usuários, destacando a marca Telecall e demonstrando nosso domínio das tecnologias web. -->
+Essas bibliotecas foram incorporadas ao projeto para fornecer recursos adicionais e facilitar o desenvolvimento de determinadas funcionalidades, como manipulação do DOM, interação com o usuário e exibição de notificações. -->
 
 ## Licença
 
@@ -67,34 +66,17 @@ Este projeto está licenciado para uso exclusivo pelo grupo DGM Web Developers (
 
 Agradecemos a você por explorar nosso projeto e esperamos que ele possa servir de inspiração e aprendizado para outros desenvolvedores. Estamos ansiosos para apresentar o resultado do nosso trabalho e esperamos que ele atenda às expectativas dos usuários do site e docentes responsáveis.
 
----
+<!-- --- -->
 
-## Demo
+<!-- ## Demo
 
-### Imagens do projeto
+### Imagens do projeto -->
 
-##### Tela inicial
+<!-- ##### Tela inicial
 <img src="./md-img/home.jpeg">
-
-
-##### Página Sobre
-<img src="./md-img/sobre.jpeg">
-
-##### Página Serviços
-<img src="./md-img/servicos.jpeg">
-
-##### Página Agendar
-<img src="./md-img/agendar.jpeg">
-
-##### Página Contatos
-<img src="./md-img/contatos.jpeg">
-
-##### Página de Login
-<img src="./md-img/login.jpeg">
-
-##### Página de Cadastro
-<img src="./md-img/cadastro.jpeg">
+ -->
 
 ****
 
-### **Teste o site clicando [aqui](https://johnbravo-dgm.web.app).**
+### **Teste o nosso site (Front-end) clicando [aqui](https://johnbravo-dgm.web.app).**
+*Em breve com back-end*

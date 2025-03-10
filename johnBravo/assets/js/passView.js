@@ -21,9 +21,9 @@ function passViewInputs(event) {
         event.target.classList.remove('fa-eye-slash')
     }
 }
-// Selecionando o ícone de visualização da senha
+// Ícone de visualização da senha
 let passViewIcon = document.querySelectorAll('#eye-icon');
-// Adicionando o evento de clique aos ícones
+// Evento de clique aos ícones
 passViewIcon.forEach(icon => {
     icon.addEventListener('click', passViewInputs);
 });

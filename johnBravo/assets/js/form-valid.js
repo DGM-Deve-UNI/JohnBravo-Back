@@ -691,5 +691,3 @@ document.getElementById("clearBtn").addEventListener("click", function() {
 });
 
 document.getElementById('submitBtn').addEventListener('click', cadastrar);
-
-
