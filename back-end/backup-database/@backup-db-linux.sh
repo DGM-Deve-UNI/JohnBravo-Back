@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/bash
 
 # Configurações do MySQL
 MYSQL_USER="root"

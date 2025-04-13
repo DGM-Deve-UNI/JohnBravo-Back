@@ -1,7 +1,7 @@
 import { loadPage } from './loadPage.js';
 import { highlightMenu } from './highlightMenu.js';
 import { closeNavbar } from './closeNavMenu.js';
-
+// ===========================================================================\\
 // Função para configurar links dinâmicos
 function setupDynamicLinks(contentDiv) {
     document.addEventListener('click', (e) => {

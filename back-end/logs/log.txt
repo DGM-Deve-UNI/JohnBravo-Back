@@ -1,0 +1,589 @@
+🔥 Conectou no PHP
+Array
+(
+    [login] => luna
+    [senha] => 1234
+)
+🔥 Conectou no PHP
+Array
+(
+    [login] => 
+    [senha] => 
+)
+🔥 Conectou no PHP
+Array
+(
+    [login] => luna1234
+    [senha] => luna12
+)
+🔥 Conectou no PHP
+Array
+(
+    [login] => 
+    [senha] => 
+)
+🔥 Conectou no PHP
+Array
+(
+    [login] => luna1234
+    [senha] => luna12
+)
+🔥 Conectou no PHP
+Array
+(
+    [login] => bia12345
+    [senha] => 123456
+)
+🔥 Conectou no PHP
+Array
+(
+    [login] => bia12345
+    [senha] => 123456
+)
+🔥 Conectou no PHP
+Array
+(
+    [login] => bia12345
+    [senha] => 123456
+)
+🔥 Conectou no PHP
+Array
+(
+    [login] => bia12345
+    [senha] => 123456
+)
+🔥 Conectou no PHP
+Array
+(
+    [login] => bia12345
+    [senha] => 123456
+)
+🔥 Conectou no PHP
+Array
+(
+    [login] => bia12345
+    [senha] => 123456
+)
+🔥 Usuário encontrado: Array
+(
+    [id_users] => 19
+    [nome_user] => Bia
+    [sobrenome_user] => Santos
+    [data_nasc_user] => 1999-09-19
+    [gen_user] => Feminino
+    [cpf_user] => 049.996.453-51
+    [email_user] => bia@g.com
+    [cel_user] => (21) 99999-9999
+    [tel_user] => (00) 0000-0000
+    [cep_user] => 22240-000
+    [endereco_user] => Rua das Laranjeiras
+    [num_end_user] => 123
+    [estado_user] => RJ
+    [cidade_user] => Rio de Janeiro
+    [bairro_user] => Laranjeiras
+    [complemento_user] => 
+    [login_user] => bia12345
+    [senha_user] => $2y$10
+)
+🔥 Senha incorreta: 123456
+🔥 Conectou no PHP
+Array
+(
+    [login] => bia12345
+    [senha] => 123456
+)
+🔥 Usuário encontrado: Array
+(
+    [id_users] => 19
+    [nome_user] => Bia
+    [sobrenome_user] => Santos
+    [data_nasc_user] => 1999-09-19
+    [gen_user] => Feminino
+    [cpf_user] => 049.996.453-51
+    [email_user] => bia@g.com
+    [cel_user] => (21) 99999-9999
+    [tel_user] => (00) 0000-0000
+    [cep_user] => 22240-000
+    [endereco_user] => Rua das Laranjeiras
+    [num_end_user] => 123
+    [estado_user] => RJ
+    [cidade_user] => Rio de Janeiro
+    [bairro_user] => Laranjeiras
+    [complemento_user] => 
+    [login_user] => bia12345
+    [senha_user] => $2y$10
+)
+🔥 Senha incorreta: 123456
+🔥 Conectou no PHP
+Array
+(
+    [login] => bia12345
+    [senha] => 123456
+)
+🔥 Usuário encontrado: Array
+(
+    [id_users] => 19
+    [nome_user] => Bia
+    [sobrenome_user] => Santos
+    [data_nasc_user] => 1999-09-19
+    [gen_user] => Feminino
+    [cpf_user] => 049.996.453-51
+    [email_user] => bia@g.com
+    [cel_user] => (21) 99999-9999
+    [tel_user] => (00) 0000-0000
+    [cep_user] => 22240-000
+    [endereco_user] => Rua das Laranjeiras
+    [num_end_user] => 123
+    [estado_user] => RJ
+    [cidade_user] => Rio de Janeiro
+    [bairro_user] => Laranjeiras
+    [complemento_user] => 
+    [login_user] => bia12345
+    [senha_user] => $2y$10
+)
+🔥 Senha incorreta: 123456
+🔥 Conectou no PHP
+Array
+(
+    [login] => bia12345
+    [senha] => 123456
+)
+🔥 Usuário encontrado: Array
+(
+    [id_users] => 19
+    [nome_user] => Bia
+    [sobrenome_user] => Santos
+    [data_nasc_user] => 1999-09-19
+    [gen_user] => Feminino
+    [cpf_user] => 049.996.453-51
+    [email_user] => bia@g.com
+    [cel_user] => (21) 99999-9999
+    [tel_user] => (00) 0000-0000
+    [cep_user] => 22240-000
+    [endereco_user] => Rua das Laranjeiras
+    [num_end_user] => 123
+    [estado_user] => RJ
+    [cidade_user] => Rio de Janeiro
+    [bairro_user] => Laranjeiras
+    [complemento_user] => 
+    [login_user] => bia12345
+    [senha_user] => $2y$10
+)
+🔥 Senha incorreta: 123456
+🔥 Conectou no PHP
+Array
+(
+    [login] => bia12345
+    [senha] => 123456
+)
+🔥 Usuário encontrado: Array
+(
+    [id_users] => 19
+    [nome_user] => Bia
+    [sobrenome_user] => Santos
+    [data_nasc_user] => 1999-09-19
+    [gen_user] => Feminino
+    [cpf_user] => 049.996.453-51
+    [email_user] => bia@g.com
+    [cel_user] => (21) 99999-9999
+    [tel_user] => (00) 0000-0000
+    [cep_user] => 22240-000
+    [endereco_user] => Rua das Laranjeiras
+    [num_end_user] => 123
+    [estado_user] => RJ
+    [cidade_user] => Rio de Janeiro
+    [bairro_user] => Laranjeiras
+    [complemento_user] => 
+    [login_user] => bia12345
+    [senha_user] => $2y$10
+)
+🔥 Senha incorreta: 123456
+🔥 Conectou no PHP
+Array
+(
+    [login] => bia12345
+    [senha] => $2y$10
+)
+🔥 Usuário encontrado: Array
+(
+    [id_users] => 19
+    [nome_user] => Bia
+    [sobrenome_user] => Santos
+    [data_nasc_user] => 1999-09-19
+    [gen_user] => Feminino
+    [cpf_user] => 049.996.453-51
+    [email_user] => bia@g.com
+    [cel_user] => (21) 99999-9999
+    [tel_user] => (00) 0000-0000
+    [cep_user] => 22240-000
+    [endereco_user] => Rua das Laranjeiras
+    [num_end_user] => 123
+    [estado_user] => RJ
+    [cidade_user] => Rio de Janeiro
+    [bairro_user] => Laranjeiras
+    [complemento_user] => 
+    [login_user] => bia12345
+    [senha_user] => $2y$10
+)
+🔥 Senha incorreta: $2y$10
+🔥 Conectou no PHP
+Array
+(
+    [login] => luna1234
+    [senha] => luna12
+)
+🔥 Usuário encontrado: Array
+(
+    [id_users] => 18
+    [nome_user] => Luna
+    [sobrenome_user] => Silva
+    [data_nasc_user] => 1999-12-12
+    [gen_user] => Feminino
+    [cpf_user] => 049.996.453-51
+    [email_user] => luna@g.com
+    [cel_user] => (21) 91234-5678
+    [tel_user] => (21) 1234-5678
+    [cep_user] => 20911-300
+    [endereco_user] => Rua Leopoldo Bulhões
+    [num_end_user] => 800
+    [estado_user] => RJ
+    [cidade_user] => Rio de Janeiro
+    [bairro_user] => Manguinhos
+    [complemento_user] => Teste de Complemento
+    [login_user] => luna1234
+    [senha_user] => $2y$10
+)
+🔥 Senha incorreta: luna12
+🔥 Conectou no PHP
+Array
+(
+    [login] => bia12345
+    [senha] => 123456
+)
+🔥 Usuário encontrado: Array
+(
+    [id_users] => 19
+    [nome_user] => Bia
+    [sobrenome_user] => Santos
+    [data_nasc_user] => 1999-09-19
+    [gen_user] => Feminino
+    [cpf_user] => 049.996.453-51
+    [email_user] => bia@g.com
+    [cel_user] => (21) 99999-9999
+    [tel_user] => (00) 0000-0000
+    [cep_user] => 22240-000
+    [endereco_user] => Rua das Laranjeiras
+    [num_end_user] => 123
+    [estado_user] => RJ
+    [cidade_user] => Rio de Janeiro
+    [bairro_user] => Laranjeiras
+    [complemento_user] => 
+    [login_user] => bia12345
+    [senha_user] => $2y$10
+)
+🔥 Senha incorreta: 123456
+🔥 Conectou no PHP
+Array
+(
+    [login] => lia12345
+    [senha] => lia123
+)
+🔥 Usuário encontrado: Array
+(
+    [id_users] => 20
+    [nome_user] => Lia
+    [sobrenome_user] => Almeida
+    [data_nasc_user] => 2000-12-12
+    [gen_user] => Feminino
+    [cpf_user] => 049.996.453-51
+    [email_user] => lia@g.com
+    [cel_user] => (21) 88888-8888
+    [tel_user] => (21) 9999-9999
+    [cep_user] => 20911-302
+    [endereco_user] => Comunidade Urbana MANDELA DE PEDRA
+    [num_end_user] => 33
+    [estado_user] => RJ
+    [cidade_user] => Rio de Janeiro
+    [bairro_user] => Manguinhos
+    [complemento_user] => 
+    [login_user] => lia12345
+    [senha_user] => $2y$10$Pwp7f2FJq8zJUv/CXiukUe.ysdhIDVnwcu/L8GapUECHpi.dqfbNW
+)
+🔥 Conectou no PHP
+Array
+(
+    [login] => lia12345
+    [senha] => lia123
+)
+🔥 Conectou no PHP
+Array
+(
+    [login] => 
+    [senha] => 
+)
+🔥 Conectou no PHP
+Array
+(
+    [login] => 
+    [senha] => 
+)
+🔥 Conectou no PHP
+Array
+(
+    [login] => 
+    [senha] => 
+)
+🔥 Conectou no PHP
+Array
+(
+    [login] => 
+    [senha] => 
+)
+🔥 Usuário não encontrado: 
+🔥 Conectou no PHP
+Array
+(
+    [login] => 
+    [senha] => 
+)
+🔥 Usuário não encontrado: 
+🔥 Conectou no PHP
+Array
+(
+    [login] => 
+    [senha] => 
+)
+🔥 Usuário não encontrado: 
+🔥 Conectou no PHP
+Array
+(
+    [login] => lia12345
+    [senha] => lia123
+)
+🔥 Usuário encontrado: Array
+(
+    [id_users] => 20
+    [nome_user] => Lia
+    [sobrenome_user] => Almeida
+    [data_nasc_user] => 2000-12-12
+    [gen_user] => Feminino
+    [cpf_user] => 049.996.453-51
+    [email_user] => lia@g.com
+    [cel_user] => (21) 88888-8888
+    [tel_user] => (21) 9999-9999
+    [cep_user] => 20911-302
+    [endereco_user] => Comunidade Urbana MANDELA DE PEDRA
+    [num_end_user] => 33
+    [estado_user] => RJ
+    [cidade_user] => Rio de Janeiro
+    [bairro_user] => Manguinhos
+    [complemento_user] => 
+    [login_user] => lia12345
+    [senha_user] => $2y$10$Pwp7f2FJq8zJUv/CXiukUe.ysdhIDVnwcu/L8GapUECHpi.dqfbNW
+)
+🔥 Conectou no PHP
+Array
+(
+    [login] => lia12345
+    [senha] => lia123
+)
+🔥 Usuário encontrado: Array
+(
+    [id_users] => 20
+    [nome_user] => Lia
+    [sobrenome_user] => Almeida
+    [data_nasc_user] => 2000-12-12
+    [gen_user] => Feminino
+    [cpf_user] => 049.996.453-51
+    [email_user] => lia@g.com
+    [cel_user] => (21) 88888-8888
+    [tel_user] => (21) 9999-9999
+    [cep_user] => 20911-302
+    [endereco_user] => Comunidade Urbana MANDELA DE PEDRA
+    [num_end_user] => 33
+    [estado_user] => RJ
+    [cidade_user] => Rio de Janeiro
+    [bairro_user] => Manguinhos
+    [complemento_user] => 
+    [login_user] => lia12345
+    [senha_user] => $2y$10$Pwp7f2FJq8zJUv/CXiukUe.ysdhIDVnwcu/L8GapUECHpi.dqfbNW
+)
+🔥 Conectou no PHP
+Array
+(
+    [login] => lia12345
+    [senha] => 
+)
+🔥 Usuário encontrado: Array
+(
+    [id_users] => 20
+    [nome_user] => Lia
+    [sobrenome_user] => Almeida
+    [data_nasc_user] => 2000-12-12
+    [gen_user] => Feminino
+    [cpf_user] => 049.996.453-51
+    [email_user] => lia@g.com
+    [cel_user] => (21) 88888-8888
+    [tel_user] => (21) 9999-9999
+    [cep_user] => 20911-302
+    [endereco_user] => Comunidade Urbana MANDELA DE PEDRA
+    [num_end_user] => 33
+    [estado_user] => RJ
+    [cidade_user] => Rio de Janeiro
+    [bairro_user] => Manguinhos
+    [complemento_user] => 
+    [login_user] => lia12345
+    [senha_user] => $2y$10$Pwp7f2FJq8zJUv/CXiukUe.ysdhIDVnwcu/L8GapUECHpi.dqfbNW
+)
+🔥 Senha incorreta: 
+🔥 Conectou no PHP
+Array
+(
+    [login] => lia12345
+    [senha] => ree
+)
+🔥 Usuário encontrado: Array
+(
+    [id_users] => 20
+    [nome_user] => Lia
+    [sobrenome_user] => Almeida
+    [data_nasc_user] => 2000-12-12
+    [gen_user] => Feminino
+    [cpf_user] => 049.996.453-51
+    [email_user] => lia@g.com
+    [cel_user] => (21) 88888-8888
+    [tel_user] => (21) 9999-9999
+    [cep_user] => 20911-302
+    [endereco_user] => Comunidade Urbana MANDELA DE PEDRA
+    [num_end_user] => 33
+    [estado_user] => RJ
+    [cidade_user] => Rio de Janeiro
+    [bairro_user] => Manguinhos
+    [complemento_user] => 
+    [login_user] => lia12345
+    [senha_user] => $2y$10$Pwp7f2FJq8zJUv/CXiukUe.ysdhIDVnwcu/L8GapUECHpi.dqfbNW
+)
+🔥 Senha incorreta: ree
+🔥 Conectou no PHP
+Array
+(
+    [login] => 
+    [senha] => ree
+)
+🔥 Usuário não encontrado: 
+🔥 Conectou no PHP
+Array
+(
+    [login] => 
+    [senha] => ree
+)
+🔥 Usuário não encontrado: 
+🔥 Conectou no PHP
+Array
+(
+    [login] => pp
+    [senha] => ree
+)
+🔥 Usuário não encontrado: pp
+🔥 Conectou no PHP
+Array
+(
+    [login] => 
+    [senha] => 
+)
+🔥 Usuário não encontrado: 
+🔥 Conectou no PHP
+Array
+(
+    [login] => 
+    [senha] => 
+)
+🔥 Usuário não encontrado: 
+🔥 Conectou no PHP
+Array
+(
+    [login] => lia12345
+    [senha] => lia123
+)
+🔥 Usuário encontrado: Array
+(
+    [id_users] => 20
+    [nome_user] => Lia
+    [sobrenome_user] => Almeida
+    [data_nasc_user] => 2000-12-12
+    [gen_user] => Feminino
+    [cpf_user] => 049.996.453-51
+    [email_user] => lia@g.com
+    [cel_user] => (21) 88888-8888
+    [tel_user] => (21) 9999-9999
+    [cep_user] => 20911-302
+    [endereco_user] => Comunidade Urbana MANDELA DE PEDRA
+    [num_end_user] => 33
+    [estado_user] => RJ
+    [cidade_user] => Rio de Janeiro
+    [bairro_user] => Manguinhos
+    [complemento_user] => 
+    [login_user] => lia12345
+    [senha_user] => $2y$10$Pwp7f2FJq8zJUv/CXiukUe.ysdhIDVnwcu/L8GapUECHpi.dqfbNW
+)
+🔥 Conectou no PHP
+Array
+(
+    [login] => lia12345
+    [senha] => lia123
+)
+🔥 Usuário encontrado: Array
+(
+    [id_users] => 20
+    [nome_user] => Lia
+    [sobrenome_user] => Almeida
+    [data_nasc_user] => 2000-12-12
+    [gen_user] => Feminino
+    [cpf_user] => 049.996.453-51
+    [email_user] => lia@g.com
+    [cel_user] => (21) 88888-8888
+    [tel_user] => (21) 9999-9999
+    [cep_user] => 20911-302
+    [endereco_user] => Comunidade Urbana MANDELA DE PEDRA
+    [num_end_user] => 33
+    [estado_user] => RJ
+    [cidade_user] => Rio de Janeiro
+    [bairro_user] => Manguinhos
+    [complemento_user] => 
+    [login_user] => lia12345
+    [senha_user] => $2y$10$Pwp7f2FJq8zJUv/CXiukUe.ysdhIDVnwcu/L8GapUECHpi.dqfbNW
+)
+🔥 Conectou no PHP
+Array
+(
+    [login] => lia12345
+    [senha] => lia123
+)
+🔥 Usuário encontrado: Array
+(
+    [id_users] => 20
+    [nome_user] => Lia
+    [sobrenome_user] => Almeida
+    [data_nasc_user] => 2000-12-12
+    [gen_user] => Feminino
+    [cpf_user] => 049.996.453-51
+    [email_user] => lia@g.com
+    [cel_user] => (21) 88888-8888
+    [tel_user] => (21) 9999-9999
+    [cep_user] => 20911-302
+    [endereco_user] => Comunidade Urbana MANDELA DE PEDRA
+    [num_end_user] => 33
+    [estado_user] => RJ
+    [cidade_user] => Rio de Janeiro
+    [bairro_user] => Manguinhos
+    [complemento_user] => 
+    [login_user] => lia12345
+    [senha_user] => $2y$10$Pwp7f2FJq8zJUv/CXiukUe.ysdhIDVnwcu/L8GapUECHpi.dqfbNW
+)
+🔥 Conectou no PHP
+Array
+(
+    [login] => 
+    [senha] => 
+)
+🔥 Usuário não encontrado: 

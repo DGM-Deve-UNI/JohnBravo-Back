@@ -1,0 +1,21 @@
+Array
+(
+    [nome] => 
+    [sobrenome] => 
+    [data] => 
+    [genero] => Feminino
+    [cpf] => 
+    [email] => 
+    [cel] => 
+    [tel] => 
+    [cep] => 
+    [endereco] => 
+    [numero] => 
+    [estado] => 
+    [cidade] => 
+    [bairro] => 
+    [complemento] => 
+    [login] => 
+    [senha] => 
+    [confiSenha] => 
+)

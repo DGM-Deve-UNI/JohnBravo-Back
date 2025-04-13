@@ -4,7 +4,7 @@ import { highlightMenu } from './utils/highlightMenu.js';
 import { setTheme } from './utils/theme.js';
 import { setupAccessibility } from './utils/accessibility.js';
 import { handleScrollToTopButton, scrollToTop } from './utils/scrollToTop.js';
-
+// ===========================================================================\\
 document.addEventListener('DOMContentLoaded', () => {
     const contentDiv = document.getElementById('content');
     const navbarCollapse = document.querySelector('.navbar-collapse');

@@ -171,16 +171,19 @@
                 <div id="user-info" class="d-none">
                   <!-- ícone do usuário -->
                   <div class="dropdown">
-                      <button class="btn border-0 btn-lg p-0 dropdown-toggle" 
+                      <button class="btn d-flex flex-row align-items-center justify-content-center border-0 btn-lg p-0 dropdown-toggle" 
                               type="button" 
                               id="user-dropdown" 
                               data-bs-toggle="dropdown" 
                               aria-expanded="false">
-                          <i class="fas fa-user-circle"></i> <span id="user-name"></span>
+                          <i class="fas fa-user-circle fs-3"></i><span id="user-name" class="fs-6 ms-2"></span>
                       </button>
                       <!-- Botão de sair -->
-                      <ul class="dropdown-menu jb-min-width-0" aria-labelledby="user-dropdown">
-                          <li><a class="dropdown-item" href="./assets/html/pages/home.html" id="logout-btn">Sair</a></li>
+                      <ul class="dropdown-menu dropdown-menu-lg-end dropdown-menu-start p-1 mt-4" aria-labelledby="user-dropdown">
+                          <li><a class="dropdown-item px-3 py-2 p- m-0 rounded-1" href="./assets/html/pages/home.html" id="">Perfil</a></li>
+                          <li><a class="dropdown-item px-3 py-2 p- m-0 rounded-1" href="./assets/html/pages/home.html" id="">Configurações</a></li>
+                            <hr class="m-1">
+                          <li><a class="dropdown-item px-3 py-2 p- m-0 rounded-1" href="./assets/html/pages/home.html" id="logout-btn">Sair</a></li>
                       </ul>
                   </div>
                 </div>

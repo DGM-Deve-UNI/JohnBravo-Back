@@ -1,9 +1,7 @@
 function cadastrar() {
-
     modalMessage.textContent = "Botão clicado.";
-    modal.showModal(); // Exibe o modal
+    modal.showModal();
 }
-
 // Função mostrar/ocultar senha
 function passViewInputs(event) {
     // Obtém o ID do input alvo a partir do atributo data-target
@@ -27,4 +25,3 @@ let passViewIcon = document.querySelectorAll('#eye-icon');
 passViewIcon.forEach(icon => {
     icon.addEventListener('click', passViewInputs);
 });
-// ========================================================

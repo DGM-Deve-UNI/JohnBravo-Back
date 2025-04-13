@@ -1,93 +1,107 @@
-document.getElementById("cep").addEventListener("blur", function() {
+export async function consultaCEP(cep) {
+    const camposEndereco = ['endereco', 'bairro', 'cidade', 'estado'];
+    const feedbackCep = document.getElementById('feedbackCep');
+    const inputCep = document.getElementById('cep');
+
+    // Limpa classes e feedback anterior
+    inputCep.classList.remove("is-invalid", "is-valid");
+    feedbackCep.classList.remove("invalid-feedback", "valid-feedback", "ms-2", "pt-2");
+    feedbackCep.textContent = '';
+
     // Remove tudo que não for número
-    let cep = this.value.replace(/\D/g, '');
+    cep = cep.replace(/\D/g, '');
 
-    // Adiciona o hífen após o quinto número, se necessário
-    if (cep.length > 5) {
-        cep = cep.replace(/^(\d{5})(\d)/, '$1-$2');
-        this.value = cep; // Atualiza o valor do input com o CEP formatado
+    if (cep.length !== 8) {
+        camposEndereco.forEach(campo => {
+            const campoInput = document.getElementById(campo);
+            campoInput.value = "";
+            campoInput.disabled = false;
+            campoInput.classList.remove("is-valid");
+            campoInput.classList.add("is-invalid");
+        });
+
+        // Feedback para CEP inválido
+        feedbackCep.textContent = 'CEP inválido! Digite 8 dígitos.';
+        feedbackCep.classList.add("invalid-feedback", "ms-2", "pt-2");
+        inputCep.classList.add("is-invalid");
+
+        return false;
     }
 
-    // Referências aos campos de feedback
-    let feedbackCep = document.querySelector('#feedbackCep');
-    let fields = ['endereco', 'bairro', 'cidade', 'estado'];
-
-    // Chama a API apenas se o CEP tiver 8 números (sem o hífen)
-    if (cep.replace('-', '').length === 8) {
-        fetch(`https://viacep.com.br/ws/${cep.replace('-', '')}/json/`)
-        .then(response => response.json())
-        .then(data => {
-            if (!("erro" in data)) {
-                // Preencher os campos com os valores retornados pela API
-                document.getElementById("endereco").value = data.logradouro;
-                document.getElementById("bairro").value = data.bairro;
-                document.getElementById("cidade").value = data.localidade;
-                document.getElementById("estado").value = data.uf;
-
-                // Atualiza o feedback visual e desabilita os campos
-                fields.forEach(field => {
-                    const inputField = document.getElementById(field);
-                    inputField.classList.add('is-valid');
-                    inputField.classList.remove('is-invalid');
-                    inputField.disabled = true; // Desabilita o campo
-                    inputField.dispatchEvent(new Event('input'));
-                });
-
-                // Limpa feedback do CEP
-                this.classList.add('is-valid');
-                this.classList.remove('is-invalid');
-                feedbackCep.classList.remove('invalid-feedback', 'ms-2', 'pt-1');
-                feedbackCep.textContent = "";
-            } else {
-                // CEP não encontrado
-                limparCampos(fields);
-                this.classList.add('is-invalid');
-                feedbackCep.classList.add('invalid-feedback', 'ms-2', 'pt-1');
-                feedbackCep.textContent = "CEP não encontrado.";
-                // Simula evento de blur para atualizar labels
-                fields.forEach(field => {
-                    const inputField = document.getElementById(field);
-                    inputField.classList.remove('is-valid', 'is-invalid');
-                    inputField.dispatchEvent(new Event('blur'));
-                });
-            }
-        })
-        .catch(error => {
-            // Erro ao buscar endereço
-            console.error("Erro ao buscar o CEP:", error);
-            limparCampos(fields);
-            this.classList.add('is-invalid');
-            feedbackCep.classList.add('invalid-feedback', 'ms-2', 'pt-1');
-            feedbackCep.textContent = "Erro ao buscar endereço.";
-            fields.forEach(field => {
-                const inputField = document.getElementById(field);
-                inputField.classList.remove('is-valid', 'is-invalid');
-                inputField.dispatchEvent(new Event('blur')); 
-            });
-        });
-    } else {
-        // CEP inválido
-        limparCampos(fields);
-        this.classList.add('is-invalid');
-        feedbackCep.classList.add('invalid-feedback', 'ms-2', 'pt-1');
-        feedbackCep.textContent = "CEP inválido.";
-        fields.forEach(field => {
-            const inputField = document.getElementById(field);
-            inputField.classList.remove('is-valid', 'is-invalid');
-            inputField.dispatchEvent(new Event('blur')); 
-        });
-    }
-});
-
-// Função para limpar campos de endereço
-function limparCampos(fields) {
-    fields.forEach(field => {
-        const inputField = document.getElementById(field);
-        inputField.value = "";
-        inputField.classList.remove('is-valid', 'is-invalid');
-        inputField.disabled = false;
+    try {
+        const url = `https://viacep.com.br/ws/${cep}/json/`;
+        const response = await fetch(url);
         
-        // Simula o evento de input para atualizar label
-        inputField.dispatchEvent(new Event('input'));
+        // Verifica se a resposta é ok
+        if (!response.ok) {
+            throw new Error('Erro na consulta de CEP');
+        }
+        
+        const data = await response.json();
+
+        if (data.erro) {
+            camposEndereco.forEach(campo => {
+                const campoInput = document.getElementById(campo);
+                campoInput.value = "";
+                campoInput.disabled = false;
+                campoInput.classList.remove("is-valid");
+                campoInput.classList.add("is-invalid");
+            });
+
+            // Feedback para CEP não encontrado
+            feedbackCep.textContent = 'CEP não encontrado!';
+            feedbackCep.classList.add("invalid-feedback", "ms-2", "pt-2");
+            inputCep.classList.add("is-invalid");
+
+            return false;
+        }
+
+        // Preenche campos de endereço
+        document.getElementById('endereco').value = data.logradouro;
+        document.getElementById('bairro').value = data.bairro;
+        document.getElementById('cidade').value = data.localidade;
+        document.getElementById('estado').value = data.uf;
+
+        camposEndereco.forEach(campo => {
+            const campoInput = document.getElementById(campo);
+            campoInput.classList.remove("is-invalid");
+            campoInput.classList.add("is-valid");
+            campoInput.disabled = true;
+        });
+
+        // Ativa efeito do label
+        atualizarLabelEndereco();
+        
+        // Marca o CEP como válido
+        feedbackCep.textContent = 'CEP válido!';
+        inputCep.classList.add("is-valid");
+        feedbackCep.classList.add("valid-feedback", "ms-2", "pt-2");
+
+        return true;
+    } catch (error) {
+        console.error('Erro na consulta de CEP:', error);
+        
+        camposEndereco.forEach(campo => {
+            const campoInput = document.getElementById(campo);
+            campoInput.value = "";
+            campoInput.disabled = false;
+            campoInput.classList.remove("is-valid");
+            campoInput.classList.add("is-invalid");
+        });
+
+        feedbackCep.textContent = 'Erro ao consultar CEP!';
+        feedbackCep.classList.add("invalid-feedback", "ms-2", "pt-2");
+        inputCep.classList.add("is-invalid");
+
+        return false;
+    }
+}
+
+// Função para "subir" os labels
+function atualizarLabelEndereco() {
+    const camposEndereco = ['endereco', 'bairro', 'cidade', 'estado'];
+    camposEndereco.forEach(campo => {
+        const input = document.getElementById(campo);
+        input.dispatchEvent(new Event('input'));
     });
 }

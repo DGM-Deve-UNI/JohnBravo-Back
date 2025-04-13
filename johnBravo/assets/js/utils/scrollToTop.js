@@ -9,7 +9,6 @@ export function handleScrollToTopButton() {
         }
     };
 }
-
 // Função para rolar até o topo
 export function scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
