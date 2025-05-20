@@ -26,13 +26,13 @@ CREATE DATABASE /*!32312 IF NOT EXISTS*/ `johnbravo` /*!40100 DEFAULT CHARACTER 
 USE `johnbravo`;
 
 --
--- Table structure for table `usuarios`
+-- Table structure for table `usuario`
 --
 
-DROP TABLE IF EXISTS `usuarios`;
+DROP TABLE IF EXISTS `usuario`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `usuarios` (
+CREATE TABLE `usuario` (
   `id_users` int(11) NOT NULL AUTO_INCREMENT,
   `nome_user` varchar(45) NOT NULL,
   `sobrenome_user` varchar(45) NOT NULL,
@@ -50,19 +50,22 @@ CREATE TABLE `usuarios` (
   `bairro_user` varchar(45) NOT NULL,
   `complemento_user` varchar(200) NOT NULL,
   `login_user` varchar(8) NOT NULL,
-  `senha_user` varchar(6) NOT NULL,
-  PRIMARY KEY (`id_users`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='Tabela de cadastro de usuários.';
+  `senha_user` varchar(100) NOT NULL,
+  PRIMARY KEY (`id_users`),
+  UNIQUE KEY `cpf_user` (`cpf_user`),
+  UNIQUE KEY `email_user` (`email_user`),
+  UNIQUE KEY `login_user` (`login_user`)
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='Tabela de cadastro de usuários.';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `usuarios`
+-- Dumping data for table `usuario`
 --
 
-LOCK TABLES `usuarios` WRITE;
-/*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (18,'Luna','Silva','1999-12-12','Feminino','049.996.453-51','luna@g.com','(21) 91234-5678','(21) 1234-5678','20911-300','Rua Leopoldo Bulhões','800','RJ','Rio de Janeiro','Manguinhos','Teste de Complemento','luna1234','$2y$10');
-/*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
+LOCK TABLES `usuario` WRITE;
+/*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
+INSERT INTO `usuario` VALUES (27,'Luna','Alves','1999-12-12','Feminino','123.456.789-09','luna@gmail.com','(21) 91234-5678','','22240-000','Rua das Laranjeiras','365','RJ','Rio de Janeiro','Laranjeiras','','luna1234','$2y$10$CVestyCIgk6aBWhIwjOHuOKazDB0VLhGUbyZghURhKjlvhh9g7kim'),(28,'Lucas','Lima','1999-12-12','Masculino','049.996.453-51','lucas@gmail.com','(11) 11111-1111','','20911-300','Rua Leopoldo Bulhões','987','RJ','Rio de Janeiro','Manguinhos','','lucas123','$2y$10$/EHsTaNzWfN5umqsACSN/OPvO61hxl01ouMluNr2JT79RnkClFdnK');
+/*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -74,4 +77,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-04-12  0:01:25
+-- Dump completed on 2025-05-18 14:53:02

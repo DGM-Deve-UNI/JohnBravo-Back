@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="pt-br" data-mdb-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="../../../imgs/icons/dark/icon.png" type="image/svg+xml">
+  <meta name="description" content="Página de Perfil - JohnBravo Barbearia">
+  <meta name="author" content="DGM Web Developer®">
+<!-- ======================================================================= -->
+    <!-- === CDN fonts icons Awesome === -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<!-- === Fonts Google === -->
+  <!-- Font Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <!-- Font Lalezar -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lalezar&display=swap" rel="stylesheet">
+<!-- ======================================================================= -->
+  <!-- === CDN Bootstrap === -->
+  <!-- CSS Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+  <!-- Js Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.min.js" integrity="sha384-VQqxDN0EQCkWoxt/0vsQvZswzTHUVOImccYmSyhJTp7kGtPed0Qcx8rK9h9YEgx+" crossorigin="anonymous"></script>
+    <!-- DOMPurify -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.2.4/purify.min.js"></script>
+<!-- ======================================================================= -->
+  <!-- === CSS interno === -->
+    <link rel="stylesheet" href="../../../css/style.css">
+  <!-- === Javascript interno === -->
+
+<!-- ======================================================================= -->
+  <title>Perfil - JohnBravo Barbearia</title>
+</head>
+<body>
+  <!-- Mini navbar -->
+   <header>
+     <nav class="button-back navbar navbar-expand-lg fixed-top p-1 py-2 p-lg-0 px-lg-3 m-0 text-bg-footer-custom shadow-sm1">
+       <div class="container-fluid ps-0">
+          <!-- Logo -->
+          <a class="navbar-brand logo-link p-0 m-0" 
+              href="../../../../index.html" 
+              _msttexthash="378430" 
+              _msthash="256">
+            <!-- Imagem -->
+            <img class="p-2 img-custom" 
+                  src="../../../imgs/logos/white/logo-white.png" 
+                  alt="Logo JohnBravo" 
+                  title="JohnBravo Barbearia" 
+                  width="160"
+                  id="logo">
+          </a>
+
+          <!-- Botão hambúrguer -->
+          <button class="navbar-toggler collapsed d-flex d-lg-none flex-column justify-content-around mx-2"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#navbarPagamento"
+                  aria-controls="navbarPagamento"
+                  aria-expanded="false"
+                  aria-label="Toggle navigation">
+            <span class="toggler-icon top-bar"></span>
+            <span class="toggler-icon middle-bar"></span>
+            <span class="toggler-icon bottom-bar"></span>
+          </button>
+ 
+          <!-- Itens colapsáveis -->
+          <div class="collapse navbar-collapse justify-content-end ps-2" id="navbarPagamento">
+            <div class="d-block d-lg-flex align-items-center">
+              <!-- Botões de acessibilidade -->
+              <div class="p-3 ps-0 d-flex">
+                <div class="d-flex align-items-center p-0 m-0 me-2">
+                  <input class="chk" type="checkbox" name="theme-mode" id="dark-mode-toggle">
+                  <label class="btn-toggle fs-6 d-flex justify-content-between align-items-center bg-black rounded-pill" for="dark-mode-toggle">
+                    <i class="fa-solid fa-sun d-flex align-items-center justify-content-center"></i>
+                    <span class="toggle-slider"></span>
+                    <i class="fa-solid fa-moon d-flex align-items-center justify-content-center"></i>
+                  </label>
+                </div>
+                <button id="increase-font-btn" class="btn btn-outline-warning p-0 btn-sm me-2 rounded-pill border-2 js-border-text-warning" type="button">
+                  <i class="fa-solid fa-magnifying-glass-plus p-2"></i>
+                </button>
+                <button id="decrease-font-btn" class="btn btn-outline-warning p-0 btn-sm rounded-pill border-2 js-border-text-warning" type="button">
+                  <i class="fa-solid fa-magnifying-glass-minus p-2"></i>
+                </button>
+              </div>
+
+              <!-- Ícone do usuário logado -->
+              <div id="user-info" class="d-none">
+                <div class="dropdown my-2 my-lg-0">
+                  <button class="btn d-flex flex-row align-items-center justify-content-center border-0 btn-lg p-0 dropdown-toggle"
+                          type="button"
+                          id="user-dropdown"
+                          data-bs-toggle="dropdown"
+                          aria-expanded="false">
+                    <i class="fas fa-user-circle fs-3"></i>
+                    <span id="user-name" class="fs-6 ms-2 jb-user-name"></span>
+                  </button>
+                  <ul class="dropdown-menu dropdown-menu-lg-end dropdown-menu-start p-1 mt-4" aria-labelledby="user-dropdown">
+                    <li><a class="dropdown-item px-3 py-2 rounded-1 text-danger" href="../../../../index.html" id="logout-btn"><i class="fa-regular fa-circle-xmark me-2"></i> Finalizar Sessão</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+       </div>
+     </nav>
+   </header>
+<!-- ========================== --><br><!-- ================================ -->
+  <!-- Conteúdo -->
+  <section class="wrapper d-flex flex-column flex-md-row">
+    <!-- Botão para abrir sidebar no mobile -->
+    <div class="w-md-100 d-flex justify-content-start border-bottom">
+      <button class="btn btn-sm fs-3 ms-2 btn-dark d-md-none mt-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu"><i class="fa-solid fa-indent"></i></button>
+    </div>
+<!-- ----------------------------------------------------------------------- -->
+    <!-- Sidebar mobile -->
+    <div class="offcanvas offcanvas-start text-bg-dark d-md-none" tabindex="-1" id="sidebarMenu">
+      <!-- Imagem de perfil do usuário -->
+      <div class="offcanvas-header">
+        <div class="mt-5">
+          <div class="d-flex align-items-center text-white" id="">
+            <img src="https://marketplace.canva.com/QDspo/MAGFTtQDspo/1/tl/canva-default-user-grey-icon.-deleted-photo.-MAGFTtQDspo.png" alt="Foto do Usuário" width="57" height="57" class="rounded-circle border border-3 me-2">
+            <!-- Nome e email do usuário -->
+            <div class="d-flex flex-column">
+              <!-- Nome do usuário -->
+              <strong id="user-name-sidebar-mob"></strong>
+              <!-- E-mail do usuário -->
+              <small id="user-email-sidebar-mob" class="fw-light"></small>
+            </div>
+          </div>
+        </div>
+        <!-- Botão fechar sidebar (X) -->
+        <button type="button" class="btn-close me-1 btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+
+      <!-- Conteúdo do sidebar -->
+      <div class="offcanvas-body p-3">
+        <ul class="nav nav-pills flex-column mb-auto">
+          <li>
+            <a href="#" class="nav-link jb-nav-link p-2 mb-1 text-white active" data-bs-toggle="tab" aria-current="page" data-bs-target="#informacoes">
+              <i class="fa-solid me-1 fa-user"></i> Suas Informações
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="nav-link jb-nav-link p-2 mb-1 text-white" data-bs-toggle="tab" data-bs-target="#assinaturas">
+              <i class="fa-solid me-1 fa-file-signature"></i> Assinaturas
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="nav-link jb-nav-link p-2 mb-1 text-white" data-bs-toggle="tab" data-bs-target="#agendamentos">
+              <i class="fa-solid me-1 fa-calendar-check"></i> Agendamentos
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="nav-link jb-nav-link p-2 mb-1 text-white" data-bs-toggle="tab" data-bs-target="#pagamento">
+              <i class="fa-solid me-1 fa-credit-card"></i> Opções de Pagamento
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="nav-link jb-nav-link p-2 mb-1 text-white" data-bs-toggle="tab" data-bs-target="#historicoAgendamento">
+              <i class="fa-solid me-1 fa-history"></i> Histórico de Agendamento
+            </a>
+          </li>
+        </ul>
+        <hr>
+      </div>
+    </div>
+<!-- ----------------------------------------------------------------------- -->
+    <!-- Sidebar desktop -->
+    <div class="d-none border-end d-md-flex flex-column flex-shrink-0 p-3 text-white bg-dark min-vh-100" style="width: 300px;">
+      <!-- Imagem de perfil do usuário -->
+      <div class="d-flex justify-content-center align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+        <div class="mt-5 mt-lg-3">
+          <div class="d-flex align-items-center text-white" id="">
+            <img src="https://marketplace.canva.com/QDspo/MAGFTtQDspo/1/tl/canva-default-user-grey-icon.-deleted-photo.-MAGFTtQDspo.png" alt="" width="57" height="57" class="rounded-circle border border-3 me-2">
+            <!-- Nome e email do usuário -->
+            <div class="d-flex flex-column">
+              <!-- Nome do usuário -->
+              <strong id="user-name-sidebar"></strong>
+              <!-- E-mail do usuário -->
+              <small id="user-email-sidebar" class="fw-light"></small>
+            </div>
+          </div>
+        </div>
+      </div>
+        <hr>
+      <!-- Conteúdo do sidebar -->
+      <ul class="nav nav-pills flex-column mb-auto">
+        <li>
+          <a href="#" class="nav-link jb-nav-link p-2 mb-1 text-white active" data-bs-toggle="tab" aria-current="page" data-bs-target="#informacoes">
+            <i class="fa-solid me-1 fa-user"></i> Suas Informações
+          </a>
+        </li>
+
+        <li>
+          <a href="#" class="nav-link jb-nav-link p-2 mb-1 text-white" data-bs-toggle="tab" data-bs-target="#assinaturas">
+            <i class="fa-solid me-1 fa-file-signature"></i> Assinaturas
+          </a>
+        </li>
+
+        <li>
+          <a href="#" class="nav-link jb-nav-link p-2 mb-1 text-white" data-bs-toggle="tab" data-bs-target="#agendamentos">
+            <i class="fa-solid me-1 fa-calendar-check"></i> Agendamentos
+          </a>
+        </li>
+
+        <li>
+          <a href="#" class="nav-link jb-nav-link p-2 mb-1 text-white" data-bs-toggle="tab" data-bs-target="#pagamento">
+            <i class="fa-solid me-1 fa-credit-card"></i> Opções de Pagamento
+          </a>
+        </li>
+
+        <li>
+          <a href="#" class="nav-link jb-nav-link p-2 mb-1 text-white" data-bs-toggle="tab" data-bs-target="#historicoAgendamento">
+            <i class="fa-solid me-1 fa-history"></i> Histórico de Agendamento
+          </a>
+        </li>
+      </ul>
+        <hr>
+    </div>
+<!-- ----------------------------------------------------------------------- -->
+  <!-- Conteúdo principal -->
+    <div class="tab-content w-100 p-4 d-flex flex-column align-items-center">
+      <!-- Dados do usuário -->
+      <div class="tab-pane fade show active" id="informacoes">
+        <!-- Foto e Nickname usuário -->
+        <div class="card rounded-4 text-center" style="max-width: none !important;">
+          <!-- Foto usuário -->
+          <div class="card-body">
+            <div class="position-relative d-inline-block mb-3">
+              <img src="https://marketplace.canva.com/QDspo/MAGFTtQDspo/1/tl/canva-default-user-grey-icon.-deleted-photo.-MAGFTtQDspo.png" 
+                   id="photo" class="rounded-circle img-avatar img-thumbnail us-img-none" alt="Foto do Usuário">
+            </div>
+              <!-- Nickname -->
+              <h1 id="login_user"></h1>
+          </div>
+          <!-- Botão alterar foto -->
+          <div class="card-footer rounded-bottom-4">
+            <div class="container text-center">
+              <div class="row align-items-center">
+                  <div class="d-grid gap-2 p-0 d-md-flex justify-content-md-end">
+                    <input type="file" class="d-none" id="file">
+                    <label for="file" class="btn btn-warning text-black btn-sm fw-bold"><i class="fa-solid fa-pen-to-square"></i> Alterar foto</label>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+<!-- ----------------------------------------------------------------------- -->
+        <div class="card rounded-4 mt-3" style="max-width: none !important;">
+          <!-- Cabeçalho -->
+          <div class="card-header rounded-top-4">
+            <div class="container">
+              <div class="row align-items-center">
+                <div class="col-6 p-0">Informações pessoais</div>
+                <div class="col-6 p-0 text-end"><a href="#" class="card-link"><i class="fa-solid fa-pen-to-square me-1"></i>Editar Informações</a></div>
+              </div>
+            </div>
+          </div>
+          <!-- Corpo -->
+          <div class="card-body">
+            <!-- Dados pessoais -->
+            <div class="my-4">
+              <div class="container d-flex flex-column m-0 gap-2">
+                <!-- Nome Completo -->
+                  <div class="row m-0">
+                    <div class="d-flex gap-0 gap-md-2 p-0 align-items-center col-12 col-md-4 fw-bold">
+                      <i class="col-1 d-flex align-items-center justify-content-center fa-solid fa-user"></i><span>Nome Completo:</span>
+                    </div>
+                    <!-- Nome do usuário (dados do banco) -->
+                    <div class="col-12 col-md-8 border-bottom border-2 text-muted p-0 px-1 text-info-emphasis" id="user-name-info"></div>
+                  </div>
+                <!-- Data de Nascimento -->
+                  <div class="row m-0 mt-2">
+                    <div class="d-flex gap-0 gap-md-2 p-0 align-items-center col-12 col-md-4 fw-bold">
+                      <i class="col-1 d-flex align-items-center justify-content-center fa-solid fa-cake-candles"></i><span>Data de Nascimento:</span>
+                    </div>
+                    <!-- Data de Nascimento (dados do banco) -->
+                    <div class="col-12 col-md-8 border-bottom border-2 text-muted p-0 px-1 text-info-emphasis" id="user-data-info"></div>
+                  </div>
+                <!-- E-mail -->
+                  <div class="row m-0 mt-2">
+                    <div class="d-flex gap-0 gap-md-2 p-0 align-items-center col-12 col-md-4 fw-bold">
+                      <i class="col-1 d-flex align-items-center justify-content-center fa-solid fa-envelope"></i><span>E-mail:</span>
+                    </div>
+                    <!-- E-mail do usuário (dados do banco) -->
+                    <div class="col-12 col-md-8 border-bottom border-2 text-muted p-0 px-1 text-info-emphasis" id="user-email-info"></div>
+                  </div>
+                <!-- Celular -->
+                  <div class="row m-0 mt-2">
+                    <div class="d-flex gap-0 gap-md-2 p-0 align-items-center col-12 col-md-4 fw-bold">
+                      <i class="col-1 d-flex align-items-center justify-content-center fa-solid fa-mobile-screen-button"></i><span>Celular:</span>
+                    </div>
+                    <!-- Celular do usuário (dados do banco) -->
+                    <div class="col-12 col-md-8 border-bottom border-2 text-muted p-0 px-1 text-info-emphasis" id="user-cel-info"></div>
+                  </div>
+                <!-- Telefone -->
+                  <div class="row m-0 mt-2">
+                    <div class="d-flex gap-0 gap-md-2 p-0 align-items-center col-12 col-md-4 fw-bold">
+                      <i class="col-1 d-flex align-items-center justify-content-center fa-solid fa-phone"></i><span>Telefone:</span>
+                    </div>
+                    <!-- Telefone do usuário (dados do banco) -->
+                    <div class="col-12 col-md-8 border-bottom border-2 p-0 px-1 text-info-emphasis" id="user-tel-info"></div>
+                  </div>
+                <!-- Endereço Completo -->
+                  <div class="row m-0 mt-2">
+                    <div class="d-flex gap-0 gap-md-2 p-0 align-items-center col-12 col-md-4 fw-bold">
+                      <i class="col-1 d-flex align-items-center justify-content-center fa-solid fa-location-dot"></i><span>Endereço:</span>
+                    </div>
+                    <!-- Endereço do usuário (dados do banco) -->
+                    <div class="col-12 col-md-8 border-bottom border-2 text-muted p-0 px-1 text-info-emphasis">
+                      <span id="user-endereco-info"></span>,
+                      <span id="user-num_end-info"></span>,
+                      <span id="user-bairro-info"></span>,
+                      <span id="user-cidade-info"></span> -
+                      <span id="user-estado-info"></span>,
+                      CEP <span id="user-cep-info"></span>
+                    </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+          <!-- Rodapé -->
+          <div class="card-footer rounded-bottom-4">
+            <div class="container text-center">
+              <div class="row align-items-center">
+                <div class="p-0 text-end"><a href="#" class="card-link text-danger"><i class="fa-solid fa-trash me-1"></i>Excluir conta</a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+<!-- ----------------------------------------------------------------------- -->
+      <!-- Dados de assinaturas -->
+      <div class="tab-pane fade show" id="assinaturas">
+        <h1>Assinaturas</h1>
+        <!-- Card informação -->
+        <div class="card rounded-4 mt-5" style="max-width: none !important;">
+          <div class="card-header p-4 rounded-4">
+            <card>
+              <blockquote class="blockquote mb-2">
+                <p>Suas Assinaturas serão exibidas aqui.</p>
+              </blockquote>
+              <span class="text-secondary">
+                Quando você assinar um plano, poderá visualizar e gerenciar suas assinaturas aqui.
+              </span>
+            </card>
+          </div>
+        </div>
+      </div>
+<!-- ----------------------------------------------------------------------- -->
+      <!-- Dados de agendamentos -->
+      <div class="tab-pane fade show" id="agendamentos">
+        <h1>Agendamentos</h1>
+        <!-- Card informação -->
+        <div class="card rounded-4 mt-5" style="max-width: none !important;">
+          <div class="card-header p-4 rounded-4">
+            <card>
+              <blockquote class="blockquote mb-2">
+                <p>Seus agendamentos serão exibidas aqui.</p>
+              </blockquote>
+              <span class="text-secondary">
+                Quando você agendar um serviço, poderá visualizar e gerenciar seus agendamentos aqui.
+              </span>
+            </card>
+          </div>
+        </div>
+      </div>
+<!-- ----------------------------------------------------------------------- -->
+      <!-- Dados de pagamento -->
+      <div class="tab-pane fade show" id="pagamento">
+        <h1>Opções de Pagamento</h1>
+        <!-- Card informação -->
+        <div class="card rounded-4 mt-5">
+          <div class="card-header p-4 rounded-4">
+            <card>
+              <blockquote class="blockquote mb-2">
+                <p>Nenhum método de pagamento</p>
+              </blockquote>
+              <span class="text-secondary">
+                Você ainda não possui nenhum método de pagamento cadastrado. Você pode adicionar um novo método de pagamento aqui.
+              </span>
+            </card>
+            <br><br>
+            <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal" class="card-link">Adicionar método de pagamento</a>
+          </div>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog rounded-4">
+            <div class="modal-content shadow-4-strong rounded-4 border border-3">
+              <div class="modal-header rounded-4 rounded-bottom-0 bg-black text-white">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Adicionar um cartão de crédito/débito</h1>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
+              </div>
+
+              <div class="modal-body">
+                <p class="text-secondary text-center">Esse será o seu novo método de pagamento padrão</p>
+
+                <div id="cardFields">
+                  <!-- Bandeiras -->
+                  <div class="mb-3">
+                    <p class="m-0 p-0">Aceitamos os cartões a seguir</p>
+                    <img src="https://pmservices.cp.microsoft.com/staticresourceservice/images/v4/logo_visa.svg" alt="Visa" style="width: 48px; height: 48px;">
+                    <img src="https://pmservices.cp.microsoft.com/staticresourceservice/images/v4/logo_amex.svg" alt="Amex" style="width: 48px; height: 48px;">
+                    <img src="https://pmservices.cp.microsoft.com/staticresourceservice/images/v4/logo_mc.svg" alt="MasterCard" style="width: 48px; height: 48px;">
+                    <img src="https://pmservices.cp.microsoft.com/staticresourceservice/images/v4/logo_elo.svg" alt="Elo" style="width: 48px; height: 48px;">
+                    <img src="https://pmservices.cp.microsoft.com/staticresourceservice/images/v4/logo_hipercard.svg" alt="Hipercard" style="width: 48px; height: 48px;">
+                  </div>
+                  <hr>
+                  <b>Detalhes do cartão</b><br><br>
+
+                  <!-- Nome -->
+                  <div class="mb-3">
+                    <label for="modalCardName" class="form-label">Nome do titular do cartão</label>
+                    <input type="text" class="form-control" id="modalCardName" required>
+                    <div class="invalid-feedback">Digite um nome válido com pelo menos 3 letras no início.</div>
+                  </div>
+
+                  <!-- Número -->
+                  <div class="mb-3">
+                    <label for="modalCardNumber" class="form-label">Número do Cartão</label>
+                    <input type="text" class="form-control" id="modalCardNumber" required>
+                    <div class="invalid-feedback">Digite um número de cartão válido com 16 dígitos.</div>
+                  </div>
+
+                  <!-- Validade e CVV -->
+                  <div class="row">
+                    <div class="col-md-6 mb-3">
+                      <label for="modalExpiry" class="form-label">Validade</label>
+                      <input type="text" class="form-control" id="modalExpiry" placeholder="MM/AA" required>
+                      <div class="invalid-feedback">Informe uma validade no formato MM/AA.</div>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                      <label for="modalCvv" class="form-label">CVV</label>
+                      <input type="text" class="form-control" id="modalCvv" maxlength="4" required>
+                      <div class="invalid-feedback">Informe um CVV válido (3 ou 4 dígitos).</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="modal-footer text-bg-warning rounded-top-0 rounded-4">
+                <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Fechar</button>
+                <button type="button" class="btn btn-success" id="btnSalvarCartao">Salvar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Toast de Sucesso -->
+        <div class="toast-container position-fixed bottom-0 end-0 p-3 mb-5" style="z-index: 11">
+          <div id="toastSuccess" class="toast text-bg-success" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+              <strong class="me-auto">Sucesso</strong>
+              <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+              Cartão salvo com sucesso!
+            </div>
+          </div>
+        </div>
+        <!-- Toast de Erro -->
+        <div class="toast-container position-fixed bottom-0 end-0 p-3 mb-5" style="z-index: 11">
+          <div id="toastError" class="toast text-bg-danger" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+              <strong class="me-auto">Erro</strong>
+              <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+              Por favor, preencha todos os campos corretamente.
+            </div>
+          </div>
+        </div>  
+      </div>
+<!-- ----------------------------------------------------------------------- -->
+      <div class="tab-pane fade show" id="historicoAgendamento">
+        <h1>Histórico de Agendamento</h1>
+        <!-- Card informação -->
+        <div class="card rounded-4 mt-5" style="max-width: none !important;">
+          <div class="card-header p-4 rounded-4">
+            <card>
+              <blockquote class="blockquote mb-2">
+                <p>Nenhum agendamento feito até o momento.</p>
+              </blockquote>
+              <span class="text-secondary">
+                O historico de agendamentos será exibido aqui. Você pode visualizar os detalhes de cada agendamento.
+              </span>
+            </card>
+              <br><br>
+            <div class="d-grid gap-2 col-6 mx-auto ">
+              <a type="button" href="../../../../index.html#agendar" 
+                  class="dynamic-links btn btn-lg btn-warning text-white jb-font-Lalezar ativo-custom">
+                  Agendar agora
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+<!-- ----------------------------------------------------------------------- -->
+  <!-- Botão "Voltar ao topo (seta)" -->
+  <button id="scrollToTopBtn" class="btn mb-8 mb-md-6 p-0 btn-warning rounded-pill shadow text-dark" onclick="scrollToTop()"><i class="fas fa-arrow-up p-3"></i></button>
+<!-- ----------------------------------------------------------------------- -->
+  <!-- === Footer === -->
+  <footer id="footer" class="footer fixed-bottom text-center text-lg-start">    
+    <section class="d-flex justify-content-center justify-content-lg-between p-3 border-bottom text-dark text-bg-warning">
+    <!-- Left -->
+      <div class="me-5 ms-5 d-none d-lg-block">
+        <a href="#!" class="small text-dark">Termos de uso.</a> |
+        <a href="#!" class="small text-dark">Politica de privacidade.</a>
+      </div>
+  
+    <!-- Right -->
+      <!-- Copyright -->
+      <div class="small mx-5 text-center text-bg-light bg-warning">Copyright &copy; 2024 - 2025 | DGM Web developer&reg;</div>
+    </section>
+  </footer>
+<!-- ----------------------------------------------------------------------- -->
+<!-- Script Global auth -->
+  <script src="https://code.jquery.com/jquery-3.7.1.slim.js" integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc=" crossorigin="anonymous"></script>
+  <script type="module" src="../../../js/auth/authScript.js"></script>
+  <script src="../../../js/utils/user-logon.js"></script>
+  <script src="../../../js/api/cardCredit-valid.js"></script>
+</body>
+</html>

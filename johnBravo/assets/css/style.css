@@ -15,7 +15,7 @@
     --amarelo: #ffc107;
     --amarelo-font: #FFD700;
     --dourado: #e4a11b;
-    --dourado-escuro: #c9901f;
+    --dourado-escuro: #b6821b;
     
 /* ==== Cores modo claro/escuro ==== */
     --custom-bg-dark: #212529;
@@ -116,14 +116,51 @@ body, footer, div, section, i, a, ul, li {
 }
 /* ===- Modo claro/escuro imagem logo -=== */
 /* Imagem para o tema claro */
-[data-bs-theme="light"] .img-custom {
+/* [data-bs-theme="light"] .img-custom {
     content: url('../imgs/logos/dark/logo.png');
-}
+} */
 /* Imagem para o tema escuro */
-[data-bs-theme="dark"] .img-custom {
+/* [data-bs-theme="dark"] .img-custom {
     content: url('../imgs/logos/white/logo-white.png');
-}
+} */
 /* Inverter cor imagem/icon */
 [data-bs-theme="dark"] .invert-dark {
     filter: invert(1);
+}
+
+.wrapper {
+    align-items: stretch;
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    margin: 2.6rem 0 3.6rem 0;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    background-color: var(--amarelo)!important;
+    color: var(--custom-bg-dark)!important;
+    font-weight: 700 !important;
+    border: 1px solid var(--dourado-escuro)!important;
+}
+
+.img-avatar {
+  width: 200px;
+  height: 200px;
+}
+
+.us-img-none {
+  user-select: none;
+  pointer-events: none;
+}
+
+.btn-upload {
+  bottom: 10px;
+  right: 10px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.position-relative:hover 
+.btn-upload {
+  opacity: 1;
 }

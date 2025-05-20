@@ -14,7 +14,7 @@
     $senha = $data['senha'];
 // ===========================================================================\\
 // Buscar o usuário no banco de dados
-    $sql = "SELECT * FROM usuarios WHERE login_user = ? OR email_user = ?";
+    $sql = "SELECT * FROM usuario WHERE login_user = ? OR email_user = ?";
     if ($stmt = $db_connect->prepare($sql)) {
         $stmt->bind_param("ss", $login, $login);
         $stmt->execute();
@@ -25,15 +25,27 @@
         // Verificar se a senha está correta
             if (password_verify($senha, $user['senha_user'])) {
                 $token = bin2hex(random_bytes(16));
+        // Formatar a data de nascimento para o formato 'd/m/Y'  
+            $data_nasc_formatada = date('d/m/Y', strtotime($user['data_nasc_user']));  
             // Retornar sucesso e dados do usuário
                 echo json_encode([
                     'success' => true,
-                    'message' => 'Login realizado com sucesso',
+                    'message' => 'Login realizado com sucesso!',
                     'userData' => [
-                        // 'id' => $user['id_users'],
+                        // 'id' => $user['id_user'],
                         'nome' => $user['nome_user'],
                         'sobrenome' => $user['sobrenome_user'],
-                        // 'email' => $user['email_user'],
+                        'nascimento' => $data_nasc_formatada,
+                        'email' => $user['email_user'],
+                        'cel' => $user['cel_user'],
+                        'tel' => $user['tel_user'],
+                        'login' => $user['login_user'],
+                        'cep' => $user['cep_user'],
+                        'endereco' => $user['endereco_user'],
+                        'numEnd' => $user['num_end_user'],
+                        'estado' => $user['estado_user'],
+                        'cidade' => $user['cidade_user'],
+                        'bairro' => $user['bairro_user'],
                     ]
                 ]);
             } else {

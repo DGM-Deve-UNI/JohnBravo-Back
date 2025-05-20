@@ -7,25 +7,39 @@ function setupDynamicLinks(contentDiv) {
     document.addEventListener('click', (e) => {
         const link = e.target.closest('.dynamic-links');
         if (link) {
-            e.preventDefault();
-            
-            // Verifica se é um link de login/registro
-            if (link.id === 'login-btn' || link.id === 'registro-btn') {
-                window.location.href = link.getAttribute('href');
+            const url = link.getAttribute('href');
+    
+            if (!url || url.startsWith('javascript:')) {
                 return;
             }
-
-            const url = link.getAttribute('href');
-            if (url) {
-                loadPage(url, contentDiv);
-
-                // Após carregar o conteúdo, chama a função para destacar o item correto
-                highlightMenu(link);
-
-                sessionStorage.setItem('currentPage', url);
+    
+            // Tratar âncoras internas manualmente
+            if (url.startsWith('#')) {
+                e.preventDefault();
+                const destino = document.querySelector(url);
+                if (destino) {
+                    destino.scrollIntoView({ behavior: 'smooth' });
+                }
+                return;
             }
+    
+            e.preventDefault();
+    
+            if (
+                link.id === "login-btn" ||
+                link.id === "registro-btn" ||
+                link.id === "btn-perfil" ||
+                link.id === "btn-settings"
+            ) {
+                window.location.href = url;
+                return;
+            }
+    
+            loadPage(url, contentDiv);
+            highlightMenu(link);
+            sessionStorage.setItem('currentPage', url);
         }
-    });
+    });    
 }
 
 // Função para recarregar os links dinâmicos após carregar novo conteúdo
@@ -38,21 +52,29 @@ export function setupLinks(contentDiv, navbarCollapse, navbarToggler) {
     const menuLinks = document.querySelectorAll('nav a, footer a');
     
     menuLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            
-            if (link.id === 'login-btn' || link.id === 'registro-btn') {
-                window.location.href = link.getAttribute('href');
+        link.addEventListener("click", (e) => {
+            const url = link.getAttribute("href");
+
+            // Se for um link especial, deixa o navegador tratar normalmente
+            if (!url || url.startsWith("javascript:") || url.startsWith("#")) {
                 return;
             }
-            
-            const url = link.getAttribute('href');
+
+            e.preventDefault();
+
+            if (
+                link.id === "login-btn" ||
+                link.id === "registro-btn" ||
+                link.id === "btn-perfil" ||
+                link.id === "btn-settings"
+            ) {
+                window.location.href = url;
+                return;
+            }
+
             loadPage(url, contentDiv);
-
-            // Após carregar a página, destaca o item de menu
             highlightMenu(link);
-
-            sessionStorage.setItem('currentPage', url);
+            sessionStorage.setItem("currentPage", url);
             closeNavbar(navbarCollapse, navbarToggler);
         });
     });

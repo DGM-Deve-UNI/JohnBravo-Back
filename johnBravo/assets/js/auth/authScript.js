@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let fontSize = localStorage.getItem("fontSize")
     ? parseInt(localStorage.getItem("fontSize"))
     : 16;
-  // -- Configurar tamanho da fonte, se necessário -- \\
+  // -- Configurar tamanho da fonte -- \\
   document.body.style.fontSize = `${fontSize}px`;
   increaseFontBtn.addEventListener("click", () => {
     fontSize += 2;
@@ -76,3 +76,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   } handleModalBlur("modal"); handleModalBlur("RecModal");
 });
+
+fetch("../../html/components/modal.html")
+  .then((response) => response.text())
+  .then((data) => {
+    document.getElementById("modalContainer").innerHTML = data;
+  });

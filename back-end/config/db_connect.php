@@ -1,6 +1,6 @@
 <?php // -===- Conexão com o banco de dados -===- \\
     $host = "localhost";
-    $dbname = "johnBravo";
+    $dbname = "johnbravo";
     $username = "root";
     $password = ""; 
 // -------------------------------------------------------------------------- \\

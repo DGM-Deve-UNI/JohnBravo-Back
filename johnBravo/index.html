@@ -1,41 +1,35 @@
 <!DOCTYPE html>
 <html lang="pt-br" data-bs-theme="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- === Icon do site === -->
-      <link rel="icon" href="./assets/imgs/icons/dark/icon.png" type="image/svg+xml">
-  <!-- === Descrição do site ===  -->
-    <meta name="description" content="Página Home - JohnBravo Barbearia">
-  <!-- === Autor do site === -->
-    <meta name="author" content="DGM Web Developer®">
-
-  <!-- === CDN fonts icons Awesome === -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./assets/imgs/icons/dark/icon.png" type="image/svg+xml">
+  <meta name="description" content="Página Home - JohnBravo Barbearia">
+  <meta name="author" content="DGM Web Developer®">
+<!-- ======================================================================= -->
+    <!-- === CDN fonts icons Awesome === -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
   <!-- === Fonts Google === -->
     <!-- Font Montserrat -->
-      <link rel="preconnect" href="https://fonts.googleapis.com">
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-      <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <!-- Font Lalezar -->
-      <link rel="preconnect" href="https://fonts.googleapis.com">
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-      <link href="https://fonts.googleapis.com/css2?family=Lalezar&display=swap" rel="stylesheet">
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lalezar&display=swap" rel="stylesheet">
+<!-- ======================================================================= -->
   <!-- === CDN Bootstrap === -->
     <!-- CSS Bootstrap -->
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
     <!-- Js Bootstrap -->
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-
-  <!-- === API Map - CSS === -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.min.js" integrity="sha384-VQqxDN0EQCkWoxt/0vsQvZswzTHUVOImccYmSyhJTp7kGtPed0Qcx8rK9h9YEgx+" crossorigin="anonymous"></script>
+    <!-- === API Map - CSS === -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
-
   <!-- === CSS interno === -->
     <link rel="stylesheet" href="./assets/css/style.css">
-
-<!-- ======================================== -->
+<!-- ======================================================================= -->
   <title>JohnBravo Barbearia</title>
 </head>
 <body>
@@ -55,7 +49,8 @@
                     src="./assets/imgs/logos/white/logo-white.png" 
                     alt="Logo JohnBravo" 
                     title="JohnBravo Barbearia" 
-                    width="160">
+                    width="160"
+                    id="logo">
             </a>
           <!-- Menu Hambúrguer -->
             <button class="navbar-toggler collapsed d-flex d-lg-none flex-column justify-content-around mx-2" 
@@ -76,47 +71,41 @@
               <!-- L1 - Home -->
                 <li class="nav-item jb-nav-item
                             bg-warning
-                            rounded-2
                             mx-1">
-                    <a class="nav-link
+                    <a class="nav-link rounded-3 rounded-3
                               jb-nav-link 
                               text-black
                               jb-text-white
-                              fw-bold
-                              jb-text-white-hover                                     
+                              fw-bold                                     
                               ativo-custom" 
                         href="./assets/html/pages/home.html" aria-current="page" _msttexthash="42250" _msthash="258">Home</a>
                 </li>
               <!-- L2 -Sobre -->
                 <li class="nav-item jb-nav-item mx-1">
-                    <a class="nav-link
+                    <a class="nav-link rounded-3
                               jb-nav-link 
-                              jb-text-white
-                              jb-text-white-hover" 
+                              jb-text-white" 
                         href="./assets/html/pages/sobre.html" _msttexthash="313612" _msthash="259">Sobre</a>
                 </li>
               <!-- L3 - Serviços -->
                 <li class="nav-item jb-nav-item mx-1">
-                    <a class="nav-link
+                    <a class="nav-link rounded-3
                               jb-nav-link 
-                              jb-text-white
-                              jb-text-white-hover"
+                              jb-text-white"
                         href="./assets/html/pages/services.html" _msttexthash="253617" _msthash="260">Serviços</a>
                 </li>
               <!-- L4 - Agendar -->
                 <li class="nav-item jb-nav-item mx-1">
-                    <a class="nav-link
+                    <a class="nav-link rounded-3
                               jb-nav-link 
-                              jb-text-white
-                              jb-text-white-hover"
+                              jb-text-white"
                         href="./assets/html/pages/agendar.html" _msttexthash="253617" _msthash="260">Agendar</a>
                 </li>
               <!-- L5 - Contatos -->
                 <li class="nav-item jb-nav-item mx-1">
-                    <a class="nav-link
+                    <a class="nav-link rounded-3
                               jb-nav-link 
-                              jb-text-white
-                              jb-text-white-hover"
+                              jb-text-white"
                         href="./assets/html/pages/contatos.html" _msttexthash="253617" _msthash="260">Contatos</a>
                 </li>
               </ul>
@@ -126,7 +115,6 @@
                   <div class="d-flex align-items-center p-0 m-0  me-2">
                     <!-- Botão checkbox -->
                     <input class="chk" type="checkbox" name="theme-mode" id="dark-mode-toggle">
-                    <!--  -->
                     <label class="btn-toggle fs-6 d-flex justify-content-between align-items-center bg-black rounded-pill" for="dark-mode-toggle">
                       <!-- icon sol -->
                       <i class="fa-solid fa-sun d-flex align-items-center justify-content-center"></i>
@@ -180,10 +168,9 @@
                       </button>
                       <!-- Botão de sair -->
                       <ul class="dropdown-menu dropdown-menu-lg-end dropdown-menu-start p-1 mt-4" aria-labelledby="user-dropdown">
-                          <li><a class="dropdown-item px-3 py-2 p- m-0 rounded-1" href="./assets/html/pages/home.html" id="">Perfil</a></li>
-                          <li><a class="dropdown-item px-3 py-2 p- m-0 rounded-1" href="./assets/html/pages/home.html" id="">Configurações</a></li>
+                          <li><a class="dropdown-item px-3 py-2 p- m-0 rounded-1" href="./assets/html/pages/user/perfil.html" id="btn-perfil"><i class="fa-solid fa-user me-2"></i> Perfil</a></li>
                             <hr class="m-1">
-                          <li><a class="dropdown-item px-3 py-2 p- m-0 rounded-1" href="./assets/html/pages/home.html" id="logout-btn">Sair</a></li>
+                          <li><a class="dropdown-item px-3 py-2 p- m-0 rounded-1 text-danger" href="./assets/html/pages/home.html" id="logout-btn"><i class="fa-regular fa-circle-xmark me-2"></i> Sair</a></li>
                       </ul>
                   </div>
                 </div>
@@ -192,98 +179,82 @@
         </div>
       </nav>
     </header>
-  <!-- === Main === -->
-    <main id="content" class=""></main>
-
-  <!-- Botão "Voltar ao topo (seta)" -->
-    <button id="scrollToTopBtn" class="btn btn-warning p-0 rounded-pill shadow" onclick="scrollToTop()">
-      <i class="fas fa-arrow-up p-3"></i>
-    </button>
-
-  <!-- === Footer === -->
+<!-- ----------------------------------------------------------------------- -->
+    <!-- === Main === -->
+    <main id="content"></main>
+<!-- ----------------------------------------------------------------------- -->
+    <!-- Botão "Voltar ao topo (seta)" -->
+    <button id="scrollToTopBtn" class="btn btn-warning p-0 rounded-pill shadow" onclick="scrollToTop()"><i class="fas fa-arrow-up p-3"></i></button>
+<!-- ----------------------------------------------------------------------- -->
+    <!-- === Footer === -->
     <footer id="footer" class="footer text-bg-footer-custom rounded-4 text-center text-lg-start text-muted">
       <!-- Section: Social media -->
-        <section class="d-flex justify-content-center justify-content-lg-between p-3 border-bottom text-bg-warning">
-          <!-- Left -->
-          <div class="me-5 d-none d-lg-block"><span>Conecte-se conosco nas redes sociais:</span></div>
-      
-          <!-- Right -->
-          <div>
-            <!-- Facebook -->
-            <span class="me-4 text-reset text-decoration-none" alt="Facebook" title="Facebook">
-                <i class="fa-brands fa-facebook"></i>
-            </span>
-            <!-- Instagram -->
-            <span class="me-4 text-reset text-decoration-none" alt="Instagram" title="Instagram">
-                <i class="fa-brands fa-instagram"></i>
-            </span>
-            <!-- X-Twitter -->
-            <span class="me-4 text-reset text-decoration-none" alt="X-Twitter" title="X-Twitter">
-                <i class="fa-brands fa-x-twitter"></i>
-            </span>                
-          </div>
-        </section>
+      <section class="d-flex justify-content-center justify-content-lg-between p-3 border-bottom text-bg-warning">
+        <!-- Left -->
+        <div class="me-5 d-none d-lg-block"><span>Conecte-se conosco nas redes sociais:</span></div>
+    
+        <!-- Right -->
+        <div>
+          <!-- Facebook -->
+          <span class="me-4 text-reset text-decoration-none" alt="Facebook" title="Facebook"><i class="fa-brands fa-facebook"></i></span>
+          <!-- Instagram -->
+          <span class="me-4 text-reset text-decoration-none" alt="Instagram" title="Instagram"><i class="fa-brands fa-instagram"></i></span>
+          <!-- X-Twitter -->
+          <span class="me-4 text-reset text-decoration-none" alt="X-Twitter" title="X-Twitter"><i class="fa-brands fa-x-twitter"></i></span>                
+        </div>
+      </section>
       
       <!-- Section: Links -->
-        <section class="">
-          <!-- Grid container -->
-          <div class="container text-center text-md-start mt-5">
-            <!-- Grid row -->
-            <div class="row align-items-start mt-3">
-              <!-- Grid column -->
-              <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-                <!-- Content -->
-                <div class=" fw-bold mb-4"><img class="img-custom" src="./assets/imgs/logos/white/logo-white.png" width="200" alt=""></div>
-                  <!-- Text -->
-                    <p class="fs-6">Na johnBravo Barbearia, tradição e estilo se encontram para oferecer a melhor experiência de cuidado masculino. Com uma equipe dedicada e especializada, garantimos serviços de alta qualidade para que você se sinta sempre no seu melhor.</p>
-              </div>
-      
-              <!-- Grid column -->
-              <div class="col-md-2 col-lg-2 col-xl-2 mt-0 mt-md-5 mx-auto mb-4">
-                <!-- Links -->
-                <h6 class="text-uppercase fw-bold mb-4">Serviços</h6>
-                  <!-- Text -->
-                  <p class="text-reset">Corte Degradê</p>
-                  <p class="text-reset">Corte de Cabelo</p>
-                  <p class="text-reset">Barboterapia</p>
-                  <p class="text-reset">Limpeza</p>
-                  <p class="text-reset">Sobrancelha</p>
-                  <p class="text-reset">Lavagem de Cabelo</p>
-              </div>
-      
-              <!-- Grid column -->
-              <div class="col-md-3 col-lg-2 col-xl-2 mt-0 mt-md-5 mx-auto mb-4">
-                <!-- Links -->
-                <h6 class="text-uppercase fw-bold mb-4">Links</h6>
-                  <!-- Text / links -->
-                  <p><a href="./assets/html/pages/sobre.html" class="text-reset">Sobre</a></p>
-                  <p><a href="./assets/html/pages/services.html" class="text-reset">Serviços</a></p>
-                  <p><a href="./assets/html/pages/agendar.html" class="text-reset">Agendar</a></p>
-                  <p><a href="./assets/html/pages/contatos.html" class="text-reset">Contatos</a></p>
-              </div>
-      
-              <!-- Grid column -->
-              <div class="col-md-4 col-lg-3 col-xl-4 mt-5 mx-auto mb-md-0 mb-4">
-                <!-- Links -->
-                <h6 class="text-uppercase fw-bold mb-4">Contatos</h6>
-                  <!-- Text -->
-                  <p><i class="fas fa-home me-3"></i>Rua São João, 456 - Rio de Janeiro - RJ</p>                    
-                  <p><i class="fas fa-envelope me-3"></i> johnbravo@email.com.br</p>
-                  <p><i class="fas fa-phone me-3"></i> (21) 98765-4321</p>
-              </div>
+      <section>
+        <div class="container text-center text-md-start mt-5">
+          <div class="row align-items-start mt-3">
+            <!-- Logo e texto -->
+            <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+              <div class=" fw-bold mb-4"><img class="img-custom" src="./assets/imgs/logos/white/logo-white.png" width="200" alt=""></div>
+                <p class="fs-6">Na johnBravo Barbearia, tradição e estilo se encontram para oferecer a melhor experiência de cuidado masculino. Com uma equipe dedicada e especializada, garantimos serviços de alta qualidade para que você se sinta sempre no seu melhor.</p>
+            </div>
+    
+            <!-- Lista de Serviços -->
+            <div class="col-md-2 col-lg-2 col-xl-2 mt-0 mt-md-5 mx-auto mb-4">
+              <h6 class="text-uppercase fw-bold mb-4">Serviços</h6>
+                <p class="text-reset">Corte Degradê</p>
+                <p class="text-reset">Corte de Cabelo</p>
+                <p class="text-reset">Barboterapia</p>
+                <p class="text-reset">Limpeza</p>
+                <p class="text-reset">Sobrancelha</p>
+                <p class="text-reset">Lavagem de Cabelo</p>
+            </div>
+    
+            <!-- links navegação -->
+            <div class="col-md-3 col-lg-2 col-xl-2 mt-0 mt-md-5 mx-auto mb-4">
+              <h6 class="text-uppercase fw-bold mb-4">Links</h6>
+                <p><a href="./assets/html/pages/sobre.html" class="text-reset">Sobre</a></p>
+                <p><a href="./assets/html/pages/services.html" class="text-reset">Serviços</a></p>
+                <p><a href="./assets/html/pages/agendar.html" class="text-reset">Agendar</a></p>
+                <p><a href="./assets/html/pages/contatos.html" class="text-reset">Contatos</a></p>
+            </div>
+    
+            <!-- Contatos -->
+            <div class="col-md-4 col-lg-3 col-xl-4 mt-5 mx-auto mb-md-0 mb-4">
+              <h6 class="text-uppercase fw-bold mb-4">Contatos</h6>
+                <p><i class="fas fa-home me-3"></i>Rua São João, 456 - Rio de Janeiro - RJ</p>                    
+                <p><i class="fas fa-envelope me-3"></i>johnbravo@email.com.br</p>
+                <p><i class="fas fa-phone me-3"></i>(21) 98765-4321</p>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
       
       <!-- Copyright -->
-        <div class="card-footer text-center p-2 text-bg-light">Copyright &copy; 2024 | DGM Web Developer &reg;</div>
+      <div class="card-footer bg-card-footer text-center p-2 text-bg-light">Copyright &copy; 2024 - 2025 | DGM Web Developer &reg;</div>
     </footer>
   </div>
-
+<!-- ----------------------------------------------------------------------- -->
 <!-- === Script Global === -->
   <script type="module" src="./assets/js/script.js"></script>
   <script src="./assets/js/agendar.js"></script>
   <script src="./assets/js/utils/user-logon.js"></script>
+  <script src="./assets/js/utils/modal.js"></script>
 <!-- === API Map - JS === -->
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </body>
