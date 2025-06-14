@@ -30,7 +30,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.2.4/purify.min.js"></script>
 <!-- ======================================================================= -->
   <!-- === CSS interno === -->
+    <link rel="stylesheet" href="../../../css/adm.css">
     <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../../../css/navbar-footer.css">
   <!-- === Javascript interno === -->
 
 <!-- ======================================================================= -->
@@ -119,7 +121,7 @@
     </div>
 <!-- ----------------------------------------------------------------------- -->
     <!-- Sidebar mobile -->
-    <div class="offcanvas offcanvas-start text-bg-dark d-md-none" tabindex="-1" id="sidebarMenu">
+    <div class="offcanvas offcanvas-start text-bg-dark sidebar-admin d-md-none" tabindex="-1" id="sidebarMenu">
       <!-- Imagem de perfil do usuário -->
       <div class="offcanvas-header">
         <div class="mt-5">
@@ -176,7 +178,7 @@
     </div>
 <!-- ----------------------------------------------------------------------- -->
     <!-- Sidebar desktop -->
-    <div class="d-none border-end d-md-flex flex-column flex-shrink-0 p-3 text-white bg-dark min-vh-100" style="width: 300px;">
+    <div class="d-none border-end d-md-flex flex-column flex-shrink-0 p-3 text-white sidebar-admin min-vh-100" style="width: 300px;">
       <!-- Imagem de perfil do usuário -->
       <div class="d-flex justify-content-center align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
         <div class="mt-5 mt-lg-3">
@@ -229,11 +231,11 @@
     </div>
 <!-- ----------------------------------------------------------------------- -->
   <!-- Conteúdo principal -->
-    <div class="tab-content w-100 p-4 d-flex flex-column align-items-center">
+    <div class="tab-content w-100 mb-5 p-4 d-flex flex-column align-items-center">
       <!-- Dados do usuário -->
       <div class="tab-pane fade show active" id="informacoes">
         <!-- Foto e Nickname usuário -->
-        <div class="card rounded-4 text-center" style="max-width: none !important;">
+        <div class="card rounded-4 card-admin text-center" style="max-width: none !important;">
           <!-- Foto usuário -->
           <div class="card-body">
             <div class="position-relative d-inline-block mb-3">
@@ -256,7 +258,7 @@
           </div>
         </div>
 <!-- ----------------------------------------------------------------------- -->
-        <div class="card rounded-4 mt-3" style="max-width: none !important;">
+        <div class="card rounded-4 card-admin mt-3" style="max-width: none !important;">
           <!-- Cabeçalho -->
           <div class="card-header rounded-top-4">
             <div class="container">
@@ -397,7 +399,7 @@
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog rounded-4">
-            <div class="modal-content shadow-4-strong rounded-4 border border-3">
+            <div class="modal-content card-admin shadow-4-strong rounded-4 border border-3">
               <div class="modal-header rounded-4 rounded-bottom-0 bg-black text-white">
                 <h1 class="modal-title fs-5" id="exampleModalLabel">Adicionar um cartão de crédito/débito</h1>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
@@ -483,6 +485,7 @@
         </div>  
       </div>
 <!-- ----------------------------------------------------------------------- -->
+      <!-- Histórico de agendamentos -->
       <div class="tab-pane fade show" id="historicoAgendamento">
         <h1>Histórico de Agendamento</h1>
         <!-- Card informação -->
@@ -498,7 +501,7 @@
             </card>
               <br><br>
             <div class="d-grid gap-2 col-6 mx-auto ">
-              <a type="button" href="../../../../index.html#agendar" 
+              <a type="button" href="assets/html/pages/agendar.html" 
                   class="dynamic-links btn btn-lg btn-warning text-white jb-font-Lalezar ativo-custom">
                   Agendar agora
               </a>

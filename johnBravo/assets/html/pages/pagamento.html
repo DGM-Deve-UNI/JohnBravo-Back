@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br" data-mdb-theme="dark">
+<html lang="pt-br" data-bs-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,6 +30,7 @@
 <!-- ======================================================================= -->
   <!-- === CSS interno === -->
     <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/pay.css">
   <!-- === Javascript interno === -->
 
 <!-- ======================================================================= -->
@@ -104,133 +105,415 @@
   </header>
 <!-- ============================================== --><br><!-- ==================================================== -->
   <!-- Conteúdo -->
-  <section class="container-fluid py-5">
+  <section class="container-fluid bj-mt-4 py-5">
     <div class="container">
-      <h1 class="text-center my-3 my-lg-5">Finalizar Compra</h1>
-      <hr>
       <div class="row">
-        <!-- Resumo da compra -->
-        <div class="col-md-6 mb-4">
-          <div class="card shadow-sm rounded-4">
-            <div class="card-header bg-warning text-dark fw-bold rounded-top-4">Resumo da Compra</div>
-              <div class="card-body">
-                <ul class="list-group mb-3">
-                  <li class="list-group-item d-flex justify-content-between align-items-start">
-                    <div>
-                      <div class="fw-bold">Produto 1</div>
-                      <small class="text-muted">Descrição breve</small>
-                    </div>
-                      <span class="text-muted">R$ 49,90</span>
-                  </li>
-
-                  <li class="list-group-item d-flex justify-content-between">
-                    <span>Total (BRL)</span>
-                    <strong>R$ 49,90</strong>
-                  </li>
-                </ul>
+        <!-- Resumo do Pedido -->
+        <div class="col-lg-6 mb-4">
+          <div class="card">
+            <div class="card-header bg-warning text-black">
+              <h4 class="mb-0">Resumo do Pedido</h4>
+            </div>
+            <div class="card-body card-admin rounded-bottom-3">
+              <div class="d-flex justify-content-between mb-3">
+                <span>Produto:</span>
+                <span>Smartphone XYZ Pro</span>
               </div>
+              <div class="d-flex justify-content-between mb-3">
+                <span>Subtotal:</span>
+                <span>R$ 2.499,00</span>
+              </div>
+              <hr />
+              <div class="d-flex justify-content-between fw-bold fs-5">
+                <span>Total:</span>
+                <span class="text-warning">R$ 2.499,00</span>
+              </div>
+            </div>
           </div>
-        </div>
-  
-        <!-- Formas de pagamento -->
-        <div class="col-md-6 mb-5">
-          <div class="card shadow-sm rounded-4">
-            <div class="card-header bg-success text-white fw-bold rounded-top-4">Forma de Pagamento</div>
-            <div class="card-body">
-              <form id="paymentForm" novalidate>
-                <!-- Opções de pagamento -->
-                <div class="mb-4">
-                  <div class="row g-2">
-                    <div class="col-6">
-                      <input type="radio" class="btn-check" name="payment" id="payCredit" value="credit" checked onchange="togglePaymentFields()">
-                      <label class="btn btn-outline-secondary w-100 d-flex align-items-center justify-content-start py-2 px-3 small gap-2" for="payCredit">
-                        <i class="fas fa-credit-card"></i> Cartão de Crédito
-                      </label>
-                    </div>
 
-                    <div class="col-6">
-                      <input type="radio" class="btn-check" name="payment" id="payDebit" value="debit" onchange="togglePaymentFields()">
-                      <label class="btn btn-outline-secondary w-100 d-flex align-items-center justify-content-start py-2 px-3 small gap-2" for="payDebit">
-                        <i class="fas fa-university"></i> Cartão de Débito
-                      </label>
-                    </div>
-
-                    <div class="col-6">
-                      <input type="radio" class="btn-check" name="payment" id="payBoleto" value="boleto" onchange="togglePaymentFields()">
-                      <label class="btn btn-outline-secondary w-100 d-flex align-items-center justify-content-start py-2 px-3 small gap-2" for="payBoleto">
-                        <i class="fas fa-barcode"></i> Boleto
-                      </label>
-                    </div>
-                    
-                    <div class="col-6">
-                      <input type="radio" class="btn-check" name="payment" id="payPix" value="pix" onchange="togglePaymentFields()">
-                      <label class="btn btn-outline-secondary w-100 d-flex align-items-center justify-content-start py-2 px-3 small gap-2" for="payPix">
-                        <i class="fa-brands fa-pix"></i> Pix
-                      </label>
-                    </div>
-                  </div>
-                </div>
-  
-                <!-- Campos de cartão -->
-                <div id="cardFields">
-                  <div class="mb-3">
-                    <label for="cardName" class="form-label">Nome no Cartão</label>
-                    <input type="text" class="form-control" id="cardName" required>
-                    <div class="invalid-feedback">Nome inválido. Use apenas letras e sem espaços isolados.</div>
-                  </div>
-                  <div class="mb-3">
-                    <label for="cardNumber" class="form-label">Número do Cartão</label>
-                    <input type="text" class="form-control" id="cardNumber" required>
-                    <div class="invalid-feedback">Insira um número de cartão válido.</div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-6 mb-3">
-                      <label for="expiry" class="form-label">Validade</label>
-                      <input type="text" class="form-control" id="expiry" placeholder="MM/AA" required>
-                      <div class="invalid-feedback">Data inválida.</div>
-                    </div>
-                    <div class="col-md-6 mb-3">
-                      <label for="cvv" class="form-label">CVV</label>
-                      <input type="text" class="form-control w-50" id="cvv" maxlength="4" required>
-                      <div class="invalid-feedback">CVV inválido.</div>
-                    </div>
-                  </div>
-                </div>
-  
-                <!-- Boleto -->
-                <div id="boletoInfo" class="d-none mb-3">
-                  <p class="text-muted">Clique em "Gerar Boleto" para emitir seu boleto bancário.</p>
-                  <button type="button" class="btn btn-outline-secondary w-100">Gerar Boleto</button>
-                </div>
-  
-                <!-- PIX -->
-                <div id="pixInfo" class="d-none mb-3 text-center">
-                  <p class="text-muted">Escaneie o QR Code ou copie a chave Pix:</p>
-                  <img src="https://placehold.co/200x200?text=QR+Code+PIX" alt="QR Code Pix" class="img-fluid rounded mb-2">
-                  <div class="input-group">
-                    <input type="text" class="form-control" id="meuTexto" value="pix@empresa.com.br" readonly>
-                    <button class="btn btn-outline-secondary" type="button" id="btnCopiar">
-                      <i id="iconeBotao" class="fas fa-clipboard"></i>
-                    </button>
-                  </div>
-
-                  <!-- Toast -->
-                  <div class="position-fixed bottom-0 end-0 mb-5 p-3" style="z-index: 11">
-                    <div id="toastCopiado" class="toast align-items-center text-white bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
-                      <div class="d-flex">
-                        <div class="toast-body">Texto copiado com sucesso!</div>
-                        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Fechar"></button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-  
-                <!-- Botão Finalizar -->
-                <button type="submit" class="btn btn-success w-100 mt-3 rounded-pill">Finalizar Pagamento</button>
-              </form>
+          <div class="card mt-4">
+            <div class="card-header">
+              <h5 class="mb-0">Informações do Produto</h5>
+            </div>
+            <div class="card-body card-admin rounded-bottom-3 d-flex align-items-center">
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/7910/7910408.png"
+                width="128"
+                alt="Smartphone XYZ Pro"
+                class="img-fluid rounded mb-3"
+              />
+              <p>
+                Smartphone XYZ Pro com tela de 6.7", 256GB de armazenamento, 8GB
+                RAM, câmera tripla de 50MP.
+              </p>
             </div>
           </div>
         </div>
+
+        <!-- Forma de Pagamento -->
+        <div class="col-lg-6">
+          <div class="card">
+            <div class="card-header bg-success text-white">
+              <h4 class="mb-0">Forma de Pagamento</h4>
+            </div>
+            <div class="card-body card-admin rounded-bottom-3">
+              <ul class="nav nav-tabs mb-4" id="paymentTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <button
+                    class="nav-link active"
+                    id="credit-tab"
+                    data-bs-toggle="tab"
+                    data-bs-target="#credit"
+                    type="button"
+                    role="tab"
+                  >
+                    Cartão de Crédito
+                  </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button
+                    class="nav-link"
+                    id="debit-tab"
+                    data-bs-toggle="tab"
+                    data-bs-target="#debit"
+                    type="button"
+                    role="tab"
+                  >
+                    Cartão de Débito
+                  </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button
+                    class="nav-link"
+                    id="pix-tab"
+                    data-bs-toggle="tab"
+                    data-bs-target="#pix"
+                    type="button"
+                    role="tab"
+                  >
+                    PIX
+                  </button>
+                </li>
+              </ul>
+
+              <div class="tab-content" id="paymentTabContent">
+                <!-- Cartão de Crédito -->
+                <div
+                  class="tab-pane fade show active"
+                  id="credit"
+                  role="tabpanel"
+                >
+                  <form id="creditCardForm">
+                    <div class="mb-3">
+                      <label for="cardNumber" class="form-label"
+                        >Número do Cartão</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="cardNumber"
+                        placeholder="1234 5678 9012 3456"
+                        required
+                      />
+                    </div>
+                    <div class="row mb-3">
+                      <div class="col-md-6">
+                        <label for="cardName" class="form-label"
+                          >Nome no Cartão</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="cardName"
+                          placeholder="Nome como no cartão"
+                          required
+                        />
+                      </div>
+                      <div class="col-md-3">
+                        <label for="cardExpiry" class="form-label"
+                          >Validade</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="cardExpiry"
+                          placeholder="MM/AA"
+                          required
+                        />
+                      </div>
+                      <div class="col-md-3">
+                        <label for="cardCvv" class="form-label">CVV</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="cardCvv"
+                          placeholder="123"
+                          required
+                        />
+                      </div>
+                    </div>
+                    <div class="mb-3">
+                      <label for="installments" class="form-label"
+                        >Parcelas</label
+                      >
+                      <select class="form-select" id="installments" required>
+                        <option value="">Selecione</option>
+                        <option value="1">1x de R$ 2.499,00 sem juros</option>
+                        <option value="2">2x de R$ 1.249,50 sem juros</option>
+                        <option value="3">3x de R$ 833,00 sem juros</option>
+                        <option value="4">4x de R$ 624,75 sem juros</option>
+                        <option value="5">5x de R$ 499,80 sem juros</option>
+                        <option value="6">6x de R$ 416,50 sem juros</option>
+                        <option value="10">10x de R$ 274,89 com juros</option>
+                        <option value="12">12x de R$ 241,92 com juros</option>
+                      </select>
+                    </div>
+                    <div class="form-check mb-3">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="saveCard"
+                      />
+                      <label class="form-check-label" for="saveCard">
+                        Salvar cartão para compras futuras
+                      </label>
+                    </div>
+                    <button type="submit" class="btn btn-success w-100 py-2">
+                      Finalizar Compra
+                    </button>
+                  </form>
+                </div>
+
+                <!-- Cartão de Débito -->
+                <div class="tab-pane fade" id="debit" role="tabpanel">
+                  <form id="debitCardForm">
+                    <div class="mb-3">
+                      <label for="debitCardNumber" class="form-label"
+                        >Número do Cartão</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="debitCardNumber"
+                        placeholder="1234 5678 9012 3456"
+                        required
+                      />
+                    </div>
+                    <div class="row mb-3">
+                      <div class="col-md-6">
+                        <label for="debitCardName" class="form-label"
+                          >Nome no Cartão</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="debitCardName"
+                          placeholder="Nome como no cartão"
+                          required
+                        />
+                      </div>
+                      <div class="col-md-3">
+                        <label for="debitCardExpiry" class="form-label"
+                          >Validade</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="debitCardExpiry"
+                          placeholder="MM/AA"
+                          required
+                        />
+                      </div>
+                      <div class="col-md-3">
+                        <label for="debitCardCvv" class="form-label">CVV</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="debitCardCvv"
+                          placeholder="123"
+                          required
+                        />
+                      </div>
+                    </div>
+                    <div class="mb-3">
+                      <label for="debitCardPassword" class="form-label"
+                        >Senha do Cartão</label
+                      >
+                      <input
+                        type="password"
+                        class="form-control"
+                        id="debitCardPassword"
+                        placeholder="Senha de 6 dígitos"
+                        required
+                      />
+                    </div>
+                    <div class="form-check mb-3">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="saveDebitCard"
+                      />
+                      <label class="form-check-label" for="saveDebitCard">
+                        Salvar cartão para compras futuras
+                      </label>
+                    </div>
+                    <button type="submit" class="btn btn-success w-100 py-2">
+                      Finalizar Compra
+                    </button>
+                  </form>
+                </div>
+
+                <!-- PIX -->
+                <div class="tab-pane fade" id="pix" role="tabpanel">
+                  <div class="text-center mb-4">
+                    <i class="fas fa-qrcode fa-5x text-success mb-3"></i>
+                    <h5>Pague com PIX</h5>
+                    <p class="text-muted">Pagamento instantâneo e seguro</p>
+                  </div>
+
+                  <div class="alert alert-info">
+                    <p><strong>Chave PIX:</strong> 123.456.789-00</p>
+                    <p><strong>Valor:</strong> R$ 2.499,00</p>
+                    <p><strong>Beneficiário:</strong> Loja XYZ Eletrônicos</p>
+                  </div>
+
+                  <div class="mb-3">
+                    <button
+                      id="copyPixBtn"
+                      class="btn btn-outline-success w-100 mb-2"
+                    >
+                      <i class="fas fa-copy"></i> Copiar Chave PIX
+                    </button>
+                    <button
+                      id="generateQrCodeBtn"
+                      class="btn btn-outline-secondary w-100 mb-2"
+                    >
+                      <i class="fas fa-qrcode"></i> Mostrar QR Code
+                    </button>
+                  </div>
+
+                  <div class="form-check mb-3">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      id="pixPaid"
+                    />
+                    <label class="form-check-label" for="pixPaid">
+                      Já efetuei o pagamento via PIX
+                    </label>
+                  </div>
+
+                  <button id="confirmPixBtn" class="btn btn-success w-100 py-2">
+                    Confirmar Pagamento
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal QR Code PIX -->
+    <div class="modal fade" id="qrCodeModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">QR Code PIX</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body text-center">
+            <img
+              src="../../imgs/qr-code.jpeg"
+              width="128"
+              alt="QR Code PIX"
+              class="img-fluid mb-3"
+            />
+            <p>
+              Escaneie este QR Code com o aplicativo do seu banco para efetuar o
+              pagamento.
+            </p>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Fechar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Confirmação de Pagamento -->
+    <div
+      class="modal fade"
+      id="paymentConfirmationModal"
+      tabindex="-1"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Confirmar Pagamento</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <p>Tem certeza que deseja finalizar o pagamento?</p>
+            <p class="fw-bold">Valor: R$ 2.499,00</p>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Cancelar
+            </button>
+            <button
+              type="button"
+              id="confirmPaymentBtn"
+              class="btn btn-primary"
+            >
+              Confirmar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Toast Notificação -->
+    <div class="position-fixed bottom-0 end-0 mb-5 p-3" style="z-index: 11">
+      <div
+        id="paymentToast"
+        class="toast hide"
+        role="alert"
+        aria-live="assertive"
+        aria-atomic="true"
+      >
+        <div class="toast-header">
+          <strong class="me-auto">Notificação</strong>
+          <small>Agora</small>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="toast"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="toast-body"></div>
       </div>
     </div>
   </section>
@@ -257,9 +540,12 @@
   <script src="https://code.jquery.com/jquery-3.7.1.slim.js" integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc=" crossorigin="anonymous"></script>
   <!-- Bootstrap 5 JS + Popper -->
   <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script> -->
+       <!-- Bootstrap JS e dependências -->
+       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script type="module" src="../../js/auth/authScript.js"></script>
   <script src="../../js/utils/user-logon.js"></script>
   <script src="../../js/auth/cardPay-valid.js"></script>
+  <script src="../../js/api/pay.js"></script>
   <!-- IMask.js -->
   <script src="https://unpkg.com/imask"></script>
 </body>

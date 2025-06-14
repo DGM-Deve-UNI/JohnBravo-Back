@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compra Realizada com Sucesso</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../css/pay.css">
+</head>
+<body>
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card text-center py-4">
+                    <div class="card-body">
+                        <div class="mb-4">
+                            <i class="fas fa-check-circle fa-5x text-success mb-3"></i>
+                            <h1 class="card-title">Compra Realizada com Sucesso!</h1>
+                            <p class="card-text lead mt-3">Obrigado por sua compra. Seu pedido foi processado com sucesso.</p>
+                        </div>
+                        
+                        <div class="card mb-4">
+                            <div class="card-header bg-light">
+                                <h5 class="mb-0">Detalhes do Pedido</h5>
+                            </div>
+                            <div class="card-body text-start">
+                                <div class="row mb-2">
+                                    <div class="col-md-6">
+                                        <strong>Número do Pedido:</strong>
+                                    </div>
+                                    <div class="col-md-6">
+                                        #<?php echo rand(100000, 999999); ?>
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-md-6">
+                                        <strong>Data:</strong>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <?php echo date('d/m/Y H:i:s'); ?>
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-md-6">
+                                        <strong>Método de Pagamento:</strong>
+                                    </div>
+                                    <div class="col-md-6">
+                                        Cartão de Crédito
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-md-6">
+                                        <strong>Total Pago:</strong>
+                                    </div>
+                                    <div class="col-md-6 text-success fw-bold">
+                                        R$ 2.499,00
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <strong>Status:</strong>
+                                    </div>
+                                    <div class="col-md-6 text-primary fw-bold">
+                                        Pagamento Aprovado
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="card mb-4">
+                            <div class="card-header bg-light">
+                                <h5 class="mb-0">Produto</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="d-flex align-items-center">
+                                    <img src="https://cdn-icons-png.flaticon.com/512/7910/7910408.png" width="128" alt="Produto" class="img-thumbnail me-3">
+                                    <div class="text-start">
+                                        <h6>Smartphone XYZ Pro</h6>
+                                        <p class="mb-0">Preço unitário: R$ 2.499,00</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-4">
+                            <a href="#" class="btn btn-primary me-2">
+                                <i class="fas fa-truck me-1"></i> Acompanhar Pedido
+                            </a>
+                            <a href="../../../index.html" class="btn btn-outline-secondary">
+                                <i class="fas fa-home me-1"></i> Voltar à Página Inicial
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+.card {
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: none;
+}
+
+.card-header {
+    border-radius: 10px 10px 0 0 !important;
+}
+
+.nav-tabs .nav-link {
+    color: #495057;
+    font-weight: 500;
+}
+
+.nav-item:hover {
+    background: #00a759 !important;
+    transition: 0.25s ease-in-out;
+    border-radius:  10px 10px  0 0;
+}
+.nav-link:hover {
+    color: #fff !important;
+}
+
+.nav-tabs .nav-link.active {
+    color: #198754;;
+    background-color: transparent;
+    border-bottom: 3px solid #198754;;
+}
+
+.form-control, .form-select {
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: 1px solid #ced4da;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: #86b7fe;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+.btn-primary {
+    background-color: #198754;;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #198754;;
+    transform: translateY(-2px);
+}
+
+.btn-outline-primary {
+    border-radius: 8px;
+}
+
+#pix .alert {
+    border-radius: 8px;
+}
+
+.toast {
+    border-radius: 8px;
+}
+
+/* Animações */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.toast.show {
+    animation: fadeIn 0.3s;
+}

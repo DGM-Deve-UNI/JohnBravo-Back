@@ -104,7 +104,7 @@ function loadPageByHash() {
       loadPage("contatos.html", contentDiv);
       break;
     default:
-      contentDiv.innerHTML = "<h1>Página não encontrada</h1>";
+      loadPage("404.html", contentDiv);
       break;
   }
 }

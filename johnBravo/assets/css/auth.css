@@ -1,6 +1,6 @@
 @import url(./style.css); /* CSS Global */
 /* ===- Cards -=== */
-.card {
+.jb-card-size-custom {
     max-width: 600px;
     min-width: 300px;
     border-radius: 2rem;

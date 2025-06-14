@@ -2,6 +2,7 @@
 @import url(./navbar-footer.css);
 @import url(./home.css);
 @import url(./auth.css);
+@import url(./adm.css);
 /* ==== Padronização do site ==== */
 :root {
 /* ==== Cores base ==== */
@@ -25,6 +26,32 @@
 /* ==== Fontes base ==== */
     --font-Montserrat: "Montserrat", sans-serif; /* Fonte Padrão */
     --font-Lalezar: "Lalezar", system-ui; /* Fonte adicional */
+
+/* ==== Cores Página ADM ==== */
+    --azul-admin-claro: #4e73df;
+    --azul-admin-escuro: #224abe;
+  
+    --verde-admin-claro: #1cc88a;
+    --verde-admin-escuro: #13855c;
+  
+    --ciano-admin-claro: #36b9cc;
+    --ciano-admin-escuro: #258391;
+  
+    --amarelo-admin-claro: #f6c23e;
+    --amarelo-admin-escuro: #dda20a;
+  
+    --cinza-admin-fundo: #2a2a2a;
+    --cinza-admin-borda: #333;
+  
+    --cinza-admin-sidebar: #1a1a1a;
+    --cinza-admin-card: #1e1e1e;
+    --cinza-admin-header: #2a2a2a;
+  
+    --texto-admin-sidebar: rgba(255, 255, 255, 0.7);
+    --hover-admin-link: rgba(255, 193, 7, 0.2);
+    --hover-admin-link-light: rgba(255, 193, 7, 0.15);
+    --hover-admin-branco: rgba(255, 255, 255, 0.05);
+    --sombra-card-admin: rgba(0, 0, 0, 0.25);  
 }
 /* -=- Config global -=- */
 * {
@@ -38,6 +65,10 @@
 }
 body, footer, div, section, i, a, ul, li {
     transition: background 0.1s linear;
+}
+
+.bj-mt-4 {
+    margin-top: 4.1rem !important;
 }
 /* ---- Config "main" (index) ---- */
 #content {
@@ -114,6 +145,49 @@ body, footer, div, section, i, a, ul, li {
     background-color: var(--preto);
     color: var(--custom-text-muted);
 }
+
+[data-bs-theme="dark"] .card-admin {
+    background-color: var(--cinza-admin-card);
+    border: 1px solid var(--cinza-admin-fundo);
+    box-shadow: 0 4px 12px var(--sombra-card-admin);
+  }
+  
+  [data-bs-theme="light"] .card-admin {
+    background-color: var(--branco-escuro); /* ou outro claro */
+    border: 1px solid var(--cinza-claro);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+[data-bs-theme="dark"] .card-header {
+    background-color: var(--cinza-admin-header);
+    border: 1px solid var(--cinza-admin-fundo);
+    box-shadow: 0 4px 12px var(--sombra-card-admin);
+  }
+  
+  [data-bs-theme="light"] .card-header {
+    background-color: var(--branco-escuro); /* ou outro claro */
+    border: 1px solid var(--cinza-claro);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+[data-bs-theme="dark"] .sidebar-admin {
+    background-color: var(--preto);
+    /* border: 1px solid var(--cinza-admin-fundo); */
+    box-shadow: 0 4px 12px var(--sombra-card-admin);
+  }
+  
+  [data-bs-theme="light"] .sidebar-admin {
+    background-color: var(--branco-escuro); /* ou outro claro */
+    border-right: 1px solid var(--cinza-claro);
+    border-top: 1px solid var(--cinza-claro);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+[data-bs-theme="dark"] .text-white {
+    color: var(--custom-text-dark) !important;
+  }
+  
+  [data-bs-theme="light"] .text-white {
+    color: var(--custom-text-light) !important;
+  }
+  
 /* ===- Modo claro/escuro imagem logo -=== */
 /* Imagem para o tema claro */
 /* [data-bs-theme="light"] .img-custom {

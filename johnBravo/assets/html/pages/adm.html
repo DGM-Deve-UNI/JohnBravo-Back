@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="pt-br" data-mdb-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="icon" href="../../imgs/icons/dark/icon.png" type="image/svg+xml">
+  <meta name="description" content="Painel Administrativo - JohnBravo Barbearia">
+  <meta name="author" content="DGM Web Developer®">
+  <!-- ======================================================================= -->
+  <!-- === CDN fonts icons Awesome === -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <!-- === Fonts Google === -->
+  <!-- Font Montserrat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <!-- Font Lalezar -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lalezar&display=swap" rel="stylesheet">
+  <!-- ======================================================================= -->
+  <!-- === CDN Bootstrap === -->
+  <!-- CSS Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+  <!-- Js Bootstrap -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script> -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.min.js" integrity="sha384-VQqxDN0EQCkWoxt/0vsQvZswzTHUVOImccYmSyhJTp7kGtPed0Qcx8rK9h9YEgx+" crossorigin="anonymous"></script> -->
+  <!-- DOMPurify -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.2.4/purify.min.js"></script>
+  <!-- ======================================================================= -->
+  <!-- === CSS interno === -->
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/navbar-footer.css">
+  <!-- === Javascript interno === -->
+  <title>Admin - JohnBravo Barbearia</title>
+</head>
+<body>
+  <!-- Mini navbar -->
+  <header>
+    <nav class="button-back navbar navbar-expand-lg fixed-top p-1 py-2 p-lg-0 px-lg-3 m-0 text-bg-footer-custom shadow-sm1">
+      <div class="container-fluid ps-0">
+        <!-- Logo -->
+        <a class="navbar-brand logo-link p-0 m-0" 
+            href="../../../index.html" 
+            _msttexthash="378430" 
+            _msthash="256">
+          <!-- Imagem -->
+          <img class="p-2 img-custom" 
+                src="../../imgs/logos/white/logo-white.png" 
+                alt="Logo JohnBravo" 
+                title="JohnBravo Barbearia" 
+                width="160"
+                id="logo">
+        </a>
+
+        <!-- Botão hambúrguer -->
+        <button class="navbar-toggler collapsed d-flex d-lg-none flex-column justify-content-around mx-2"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarPagamento"
+                aria-controls="navbarPagamento"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+          <span class="toggler-icon top-bar"></span>
+          <span class="toggler-icon middle-bar"></span>
+          <span class="toggler-icon bottom-bar"></span>
+        </button>
+
+        <!-- Itens colapsáveis -->
+        <div class="collapse navbar-collapse justify-content-end ps-2" id="navbarPagamento">
+          <div class="d-block d-lg-flex align-items-center">
+            <!-- Botões de acessibilidade -->
+            <div class="p-3 ps-0 d-flex">
+              <div class="d-flex align-items-center p-0 m-0 me-2">
+                <input class="chk" type="checkbox" name="theme-mode" id="dark-mode-toggle">
+                <label class="btn-toggle fs-6 d-flex justify-content-between align-items-center bg-black rounded-pill" for="dark-mode-toggle">
+                  <i class="fa-solid fa-sun d-flex align-items-center justify-content-center"></i>
+                  <span class="toggle-slider"></span>
+                  <i class="fa-solid fa-moon d-flex align-items-center justify-content-center"></i>
+                </label>
+              </div>
+              <button id="increase-font-btn" class="btn btn-outline-warning p-0 btn-sm me-2 rounded-pill border-2 js-border-text-warning" type="button">
+                <i class="fa-solid fa-magnifying-glass-plus p-2"></i>
+              </button>
+              <button id="decrease-font-btn" class="btn btn-outline-warning p-0 btn-sm rounded-pill border-2 js-border-text-warning" type="button">
+                <i class="fa-solid fa-magnifying-glass-minus p-2"></i>
+              </button>
+            </div>
+
+            <!-- Ícone do usuário logado -->
+            <div id="user-info" class="d-none">
+              <div class="dropdown my-2 my-lg-0">
+                <button class="btn d-flex flex-row align-items-center justify-content-center border-0 btn-lg p-0 dropdown-toggle"
+                        type="button"
+                        id="user-dropdown"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                  <i class="fas fa-user-circle fs-3"></i>
+                  <span id="user-name" class="fs-6 ms-2 jb-user-name"></span>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-lg-end dropdown-menu-start p-1 mt-4" aria-labelledby="user-dropdown">
+                  <li><a class="dropdown-item px-3 py-2 rounded-1 text-danger" href="../../../../index.html" id="logout-btn"><i class="fa-regular fa-circle-xmark me-2"></i> Finalizar Sessão</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </nav>
+  </header>
+  <!-- ========================== -->
+    <!-- Sidebar mobile -->
+
+<!-- Offcanvas para o menu lateral no mobile -->
+    <div class="offcanvas offcanvas-start text-bg-dark d-md-none" tabindex="-1" id="sidebarAdminMobile">
+    <div class="offcanvas-header">
+      <div class="d-flex align-items-center">
+        <img src="https://cdn-icons-png.flaticon.com/512/6858/6858504.png" 
+             alt="Admin" 
+             width="50" 
+             height="50" 
+             class="rounded-circle me-3">
+        <div>
+          <h5 class="offcanvas-title mb-0">Administrador</h5>
+          <small>admin@johnbravo.com</small>
+        </div>
+      </div>
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body p-0">
+      <ul class="nav nav-pills flex-column mb-auto">
+        <li class="nav-item">
+          <a href="#" class="nav-link jb-nav-link p-3 text-white active" 
+             data-bs-toggle="tab" 
+             data-bs-target="#dashboard"
+             data-bs-dismiss="offcanvas">
+            <i class="fas fa-tachometer-alt me-2"></i> Dashboard
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link jb-nav-link p-3 text-white" 
+             data-bs-toggle="tab" 
+             data-bs-target="#funcionarios"
+             data-bs-dismiss="offcanvas">
+            <i class="fas fa-users me-2"></i> Funcionários
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link jb-nav-link p-3 text-white" 
+             data-bs-toggle="tab" 
+             data-bs-target="#clientes"
+             data-bs-dismiss="offcanvas">
+            <i class="fas fa-user-friends me-2"></i> Clientes
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link jb-nav-link p-3 text-white" 
+             data-bs-toggle="tab" 
+             data-bs-target="#servicos"
+             data-bs-dismiss="offcanvas">
+            <i class="fas fa-cut me-2"></i> Serviços
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link jb-nav-link p-3 text-white" 
+             data-bs-toggle="tab" 
+             data-bs-target="#assinaturas"
+             data-bs-dismiss="offcanvas">
+            <i class="fas fa-id-card me-2"></i> Assinaturas
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link jb-nav-link p-3 text-white" 
+             data-bs-toggle="tab" 
+             data-bs-target="#agendamentos"
+             data-bs-dismiss="offcanvas">
+            <i class="fas fa-calendar-alt me-2"></i> Agendamentos
+          </a>
+        </li>
+        <li class="nav-item mt-3">
+          <a href="#" class="nav-link jb-nav-link p-3 text-white">
+            <i class="fas fa-cog me-2"></i> Configurações
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link jb-nav-link p-3 text-white">
+            <i class="fas fa-sign-out-alt me-2"></i> Sair
+          </a>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <!-- ========================== -->
+  <!-- Conteúdo -->
+  <div class="d-flex wrapper bj-mt-4">
+    <!-- Sidebar desktop -->
+    <div class="d-none d-md-flex flex-column flex-shrink-0 p-3 text-white sidebar-admin" style="width: 300px; height: 100vh;">
+      <div class="d-flex justify-content-center align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+        <div class="mt-5 mt-lg-3">
+          <div class="d-flex align-items-center text-white" id="">
+            <img src="https://cdn-icons-png.flaticon.com/512/6858/6858504.png" alt="" width="57" height="57" class="rounded-circle border border-3 me-2">
+            <div class="d-flex flex-column">
+              <strong>Administrador</strong>
+              <small class="fw-light">admin@johnbravo.com</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <ul class="nav nav-pills flex-column mb-auto">
+        <li>
+          <a href="#" class="nav-link jb-nav-link p-2 mb-1 text-white active" data-bs-toggle="tab" aria-current="page" data-bs-target="#dashboard">
+            <i class="fas fa-tachometer-alt me-1"></i> Dashboard
+          </a>
+        </li>
+        <li>
+          <a href="#" class="nav-link jb-nav-link p-2 mb-1 text-white" data-bs-toggle="tab" data-bs-target="#funcionarios">
+            <i class="fas fa-users me-1"></i> Funcionários
+          </a>
+        </li>
+        <li>
+          <a href="#" class="nav-link jb-nav-link p-2 mb-1 text-white" data-bs-toggle="tab" data-bs-target="#clientes">
+            <i class="fas fa-user-friends me-1"></i> Clientes
+          </a>
+        </li>
+        <li>
+          <a href="#" class="nav-link jb-nav-link p-2 mb-1 text-white" data-bs-toggle="tab" data-bs-target="#servicos">
+            <i class="fas fa-cut me-1"></i> Serviços
+          </a>
+        </li>
+        <li>
+          <a href="#" class="nav-link jb-nav-link p-2 mb-1 text-white" data-bs-toggle="tab" data-bs-target="#assinaturas">
+            <i class="fas fa-id-card me-1"></i> Assinaturas
+          </a>
+        </li>
+        <li>
+          <a href="#" class="nav-link jb-nav-link p-2 mb-1 text-white" data-bs-toggle="tab" data-bs-target="#agendamentos">
+            <i class="fas fa-calendar-alt me-1"></i> Agendamentos
+          </a>
+        </li>
+        <li class="mt-4">
+          <a href="#" class="nav-link jb-nav-link p-2 mb-1 text-white">
+            <i class="fas fa-cog me-1"></i> Configurações
+          </a>
+        </li>
+        <li>
+          <a href="#" class="nav-link jb-nav-link p-2 mb-1 text-white">
+            <i class="fas fa-sign-out-alt me-1"></i> Sair
+          </a>
+        </li>
+      </ul>
+      <hr>
+    </div>
+
+    <!-- Conteúdo principal -->
+    <div class="tab-content admin-main-content mt-4 w-100 p-4 d-flex flex-column">
+        <!-- Botão para abrir o menu lateral no mobile -->
+        <button class="btn btn-sm fs-3 ms-2 mb-4 btn-none d-md-none w-md-100 d-flex justify-content-start border-bottom" 
+            type="button" 
+            data-bs-toggle="offcanvas" 
+            data-bs-target="#sidebarAdminMobile"
+            aria-controls="sidebarAdminMobile">
+            <i class="fa-solid fa-indent"></i>
+        </button>
+        <!-- Dashboard Tab -->
+        <div class="tab-pane fade show active" id="dashboard">
+        <div class="row">
+            <div class="col-md-3 stat-card-col">
+            <div class="stat-card stat-card-1 rounded-4 p-3">
+                <i class="fas fa-calendar-check fs-1"></i>
+                <h3 class="mt-2" id="todayAppointments">0</h3>
+                <p>Agendamentos Hoje</p>
+            </div>
+            </div>
+            <div class="col-md-3 stat-card-col">
+            <div class="stat-card stat-card-2 rounded-4 p-3">
+                <i class="fas fa-users fs-1"></i>
+                <h3 class="mt-2" id="activeClients">0</h3>
+                <p>Clientes Ativos</p>
+            </div>
+            </div>
+            <div class="col-md-3 stat-card-col">
+            <div class="stat-card stat-card-3 rounded-4 p-3">
+                <i class="fas fa-cut fs-1"></i>
+                <h3 class="mt-2" id="monthRevenue">R$ 0</h3>
+                <p>Faturamento Mês</p>
+            </div>
+            </div>
+            <div class="col-md-3 stat-card-col">
+            <div class="stat-card stat-card-4 rounded-4 p-3">
+                <i class="fas fa-id-card fs-1"></i>
+                <h3 class="mt-2" id="activeSubscriptions">0</h3>
+                <p>Assinaturas Ativas</p>
+            </div>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-md-8 stat-card-col">
+            <div class="card card-admin rounded-4">
+                <div class="card-header rounded-top-4">
+                <i class="fas fa-chart-line me-2"></i>Faturamento Mensal
+                </div>
+                <div class="card-body">
+                <canvas id="revenueChart" height="300"></canvas>
+                </div>
+            </div>
+            </div>
+            <div class="col-md-4 stat-card-col">
+            <div class="card card-admin rounded-4">
+                <div class="card-header rounded-top-4">
+                <i class="fas fa-calendar-alt me-2"></i>Próximos Agendamentos
+                </div>
+                <div class="card-body">
+                <div class="list-group" id="upcomingAppointments">
+                    <!-- Dinâmico via JS -->
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+
+      <!-- Funcionários Tab -->
+      <div class="tab-pane fade" id="funcionarios">
+        <div class="card card-admin rounded-4">
+          <div class="card-header rounded-top-4 d-flex justify-content-between align-items-center">
+            <span><i class="fas fa-users me-2"></i>Funcionários</span>
+            <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#addEmployeeModal">
+              <i class="fas fa-plus me-1"></i> Novo Funcionário
+            </button>
+          </div>
+          <div class="card-body">
+            <div class="search-box mb-3">
+              <i class="fas fa-search"></i>
+              <input type="text" class="form-control" id="searchEmployee" placeholder="Pesquisar funcionários...">
+            </div>
+            <div class="table-responsive">
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Cargo</th>
+                    <th>Telefone</th>
+                    <th>E-mail</th>
+                    <th>Status</th>
+                    <th>Ações</th>
+                  </tr>
+                </thead>
+                <tbody id="employeesTableBody">
+                  <!-- Dinâmico via JS -->
+                </tbody>
+              </table>
+            </div>
+            <nav aria-label="Page navigation">
+              <ul class="pagination justify-content-center mt-3">
+                <li class="page-item disabled">
+                  <a class="page-link" href="#" tabindex="-1">Anterior</a>
+                </li>
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                  <a class="page-link" href="#">Próximo</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+
+      <!-- Clientes Tab -->
+      <div class="tab-pane fade" id="clientes">
+        <div class="card card-admin rounded-4">
+          <div class="card-header rounded-top-4">
+            <i class="fas fa-user-friends me-2"></i>Clientes
+          </div>
+          <div class="card-body">
+            <div class="search-box mb-3">
+              <i class="fas fa-search"></i>
+              <input type="text" class="form-control" id="searchClient" placeholder="Pesquisar clientes...">
+            </div>
+            <div class="table-responsive">
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Telefone</th>
+                    <th>E-mail</th>
+                    <th>Data Cadastro</th>
+                    <th>Assinatura</th>
+                    <th>Ações</th>
+                  </tr>
+                </thead>
+                <tbody id="clientsTableBody">
+                  <!-- Dinâmico via JS -->
+                </tbody>
+              </table>
+            </div>
+            <nav aria-label="Page navigation">
+              <ul class="pagination justify-content-center mt-3">
+                <li class="page-item disabled">
+                  <a class="page-link" href="#" tabindex="-1">Anterior</a>
+                </li>
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                  <a class="page-link" href="#">Próximo</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+
+      <!-- Serviços Tab -->
+      <div class="tab-pane fade" id="servicos">
+        <div class="card card-admin rounded-4">
+          <div class="card-header rounded-top-4 d-flex justify-content-between align-items-center">
+            <span><i class="fas fa-cut me-2"></i>Serviços</span>
+            <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#addServiceModal">
+              <i class="fas fa-plus me-1"></i> Novo Serviço
+            </button>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Serviço</th>
+                    <th>Descrição</th>
+                    <th>Duração</th>
+                    <th>Preço</th>
+                    <th>Ativo</th>
+                    <th>Ações</th>
+                  </tr>
+                </thead>
+                <tbody id="servicesTableBody">
+                  <!-- Dinâmico via JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Assinaturas Tab -->
+      <div class="tab-pane fade" id="assinaturas">
+        <div class="card card-admin rounded-4">
+          <div class="card-header rounded-top-4 d-flex justify-content-between align-items-center">
+            <span><i class="fas fa-id-card me-2"></i>Assinaturas</span>
+            <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#addSubscriptionModal">
+              <i class="fas fa-plus me-1"></i> Nova Assinatura
+            </button>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Descrição</th>
+                    <th>Serviços Incluídos</th>
+                    <th>Preço Mensal</th>
+                    <th>Ativo</th>
+                    <th>Ações</th>
+                  </tr>
+                </thead>
+                <tbody id="subscriptionsTableBody">
+                  <!-- Dinâmico via JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Agendamentos Tab -->
+      <div class="tab-pane fade" id="agendamentos">
+        <div class="card card-admin rounded-4">
+          <div class="card-header rounded-top-4 d-flex justify-content-between align-items-center">
+            <span><i class="fas fa-calendar-alt me-2"></i>Agendamentos</span>
+            <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#addAppointmentModal">
+              <i class="fas fa-plus me-1"></i> Novo Agendamento
+            </button>
+          </div>
+          <div class="card-body">
+            <div class="row mb-3">
+              <div class="col-md-4">
+                <label for="appointmentDateFilter" class="form-label">Filtrar por data:</label>
+                <input type="date" class="form-control" id="appointmentDateFilter">
+              </div>
+              <div class="col-md-4">
+                <label for="appointmentBarberFilter" class="form-label">Filtrar por barbeiro:</label>
+                <select class="form-select" id="appointmentBarberFilter">
+                  <option value="">Todos</option>
+                  <!-- Dinâmico via JS -->
+                </select>
+              </div>
+              <div class="col-md-4">
+                <label for="appointmentStatusFilter" class="form-label">Filtrar por status:</label>
+                <select class="form-select" id="appointmentStatusFilter">
+                  <option value="">Todos</option>
+                  <option value="Agendado">Agendado</option>
+                  <option value="Confirmado">Confirmado</option>
+                  <option value="Cancelado">Cancelado</option>
+                  <option value="Concluído">Concluído</option>
+                </select>
+              </div>
+            </div>
+            <div class="table-responsive">
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Cliente</th>
+                    <th>Serviço</th>
+                    <th>Barbeiro</th>
+                    <th>Data/Hora</th>
+                    <th>Status</th>
+                    <th>Ações</th>
+                  </tr>
+                </thead>
+                <tbody id="appointmentsTableBody">
+                  <!-- Dinâmico via JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- =============================================================================================================== -->
+    <!-- Modal para Adicionar/Editar Funcionário -->
+    <div class="modal fade" id="employeeModal" tabindex="-1" aria-labelledby="employeeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content card-admin">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="employeeModalLabel">Editar Funcionário</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="employeeForm">
+                        <input type="hidden" id="employeeId">
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="employeeName" class="form-label">Nome Completo</label>
+                                <input type="text" class="form-control" id="employeeName" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="employeeRole" class="form-label">Cargo</label>
+                                <select class="form-select" id="employeeRole" required>
+                                    <option value="">Selecione...</option>
+                                    <option value="Barbeiro">Barbeiro</option>
+                                    <option value="Barbeiro Sênior">Barbeiro Sênior</option>
+                                    <option value="Recepcionista">Recepcionista</option>
+                                    <option value="Gerente">Gerente</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="employeePhone" class="form-label">Telefone</label>
+                                <input type="tel" class="form-control" id="employeePhone" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="employeeEmail" class="form-label">E-mail</label>
+                                <input type="email" class="form-control" id="employeeEmail" required>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="employeeStatus" class="form-label">Status</label>
+                                <select class="form-select" id="employeeStatus" required>
+                                    <option value="Ativo">Ativo</option>
+                                    <option value="Férias">Férias</option>
+                                    <option value="Afastado">Afastado</option>
+                                    <option value="Inativo">Inativo</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="employeePhoto" class="form-label">Foto</label>
+                                <input type="file" class="form-control" id="employeePhoto">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger me-auto" onclick="confirmDeleteEmployee(document.getElementById('employeeId').value)">
+                        <i class="fas fa-trash me-1"></i> Excluir
+                    </button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-warning" onclick="saveEmployee()">Salvar Alterações</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para Adicionar Novo Funcionário -->
+    <div class="modal fade" id="addEmployeeModal" tabindex="-1" aria-labelledby="addEmployeeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content card-admin">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addEmployeeModalLabel">Adicionar Novo Funcionário</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="addEmployeeForm">
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="newEmployeeName" class="form-label">Nome Completo</label>
+                                <input type="text" class="form-control" id="newEmployeeName" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="newEmployeeRole" class="form-label">Cargo</label>
+                                <select class="form-select" id="newEmployeeRole" required>
+                                    <option value="">Selecione...</option>
+                                    <option value="Barbeiro">Barbeiro</option>
+                                    <option value="Barbeiro Sênior">Barbeiro Sênior</option>
+                                    <option value="Recepcionista">Recepcionista</option>
+                                    <option value="Gerente">Gerente</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="newEmployeePhone" class="form-label">Telefone</label>
+                                <input type="tel" class="form-control" id="newEmployeePhone" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="newEmployeeEmail" class="form-label">E-mail</label>
+                                <input type="email" class="form-control" id="newEmployeeEmail" required>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="newEmployeeStatus" class="form-label">Status</label>
+                                <select class="form-select" id="newEmployeeStatus" required>
+                                    <option value="Ativo">Ativo</option>
+                                    <option value="Férias">Férias</option>
+                                    <option value="Afastado">Afastado</option>
+                                    <option value="Inativo">Inativo</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="newEmployeePhoto" class="form-label">Foto</label>
+                                <input type="file" class="form-control" id="newEmployeePhoto">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-warning" onclick="addEmployee()">Adicionar Funcionário</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Confirmação de Exclusão -->
+    <div class="modal fade" id="confirmDeleteModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content card-admin">
+                <div class="modal-header">
+                    <h5 class="modal-title">Confirmar Exclusão</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p id="deleteMessage">Tem certeza que deseja excluir este item? Esta ação não pode ser desfeita.</p>
+                    <input type="hidden" id="itemToDelete">
+                    <input type="hidden" id="itemType">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-danger" onclick="deleteItem()">Confirmar Exclusão</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para Adicionar/Editar Cliente -->
+    <div class="modal fade" id="clientModal" tabindex="-1" aria-labelledby="clientModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content card-admin">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="clientModalLabel">Editar Cliente</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="clientForm">
+                        <input type="hidden" id="clientId">
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="clientName" class="form-label">Nome Completo</label>
+                                <input type="text" class="form-control" id="clientName" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="clientBirthdate" class="form-label">Data de Nascimento</label>
+                                <input type="date" class="form-control" id="clientBirthdate">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="clientPhone" class="form-label">Telefone</label>
+                                <input type="tel" class="form-control" id="clientPhone" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="clientEmail" class="form-label">E-mail</label>
+                                <input type="email" class="form-control" id="clientEmail" required>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="clientSubscription" class="form-label">Assinatura</label>
+                                <select class="form-select" id="clientSubscription">
+                                    <option value="Nenhuma">Nenhuma</option>
+                                    <option value="Básica">Básica</option>
+                                    <option value="Premium">Premium</option>
+                                    <option value="VIP">VIP</option>
+                                </select>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger me-auto" onclick="confirmDeleteClient(document.getElementById('clientId').value)">
+                        <i class="fas fa-trash me-1"></i> Excluir
+                    </button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-warning" onclick="saveClient()">Salvar Alterações</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para Adicionar/Editar Serviço -->
+    <div class="modal fade" id="serviceModal" tabindex="-1" aria-labelledby="serviceModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content card-admin">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="serviceModalLabel">Editar Serviço</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="serviceForm">
+                        <input type="hidden" id="serviceId">
+                        <div class="mb-3">
+                            <label for="serviceName" class="form-label">Nome do Serviço</label>
+                            <input type="text" class="form-control" id="serviceName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="serviceDescription" class="form-label">Descrição</label>
+                            <textarea class="form-control" id="serviceDescription" rows="3"></textarea>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="serviceDuration" class="form-label">Duração (minutos)</label>
+                                <input type="number" class="form-control" id="serviceDuration" min="5" step="5" value="30" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="servicePrice" class="form-label">Preço (R$)</label>
+                                <input type="number" class="form-control" id="servicePrice" min="0" step="0.01" value="50.00" required>
+                            </div>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="serviceActive" checked>
+                            <label class="form-check-label" for="serviceActive">Serviço ativo</label>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger me-auto" onclick="confirmDeleteService(document.getElementById('serviceId').value)">
+                        <i class="fas fa-trash me-1"></i> Excluir
+                    </button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-warning" onclick="saveService()">Salvar Alterações</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para Adicionar/Editar Assinatura -->
+    <div class="modal fade" id="subscriptionModal" tabindex="-1" aria-labelledby="subscriptionModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content card-admin">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="subscriptionModalLabel">Editar Assinatura</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="subscriptionForm">
+                        <input type="hidden" id="subscriptionId">
+                        <div class="mb-3">
+                            <label for="subscriptionName" class="form-label">Nome da Assinatura</label>
+                            <input type="text" class="form-control" id="subscriptionName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="subscriptionDescription" class="form-label">Descrição</label>
+                            <textarea class="form-control" id="subscriptionDescription" rows="3"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="subscriptionServices" class="form-label">Serviços Incluídos</label>
+                            <select class="form-select" id="subscriptionServices" multiple>
+                                <!-- Dinâmico via JS -->
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="subscriptionPrice" class="form-label">Preço Mensal (R$)</label>
+                            <input type="number" class="form-control" id="subscriptionPrice" min="0" step="0.01" required>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="subscriptionActive" checked>
+                            <label class="form-check-label" for="subscriptionActive">Assinatura ativa</label>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger me-auto" onclick="confirmDeleteSubscription(document.getElementById('subscriptionId').value)">
+                        <i class="fas fa-trash me-1"></i> Excluir
+                    </button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-warning" onclick="saveSubscription()">Salvar Alterações</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para Adicionar/Editar Agendamento -->
+    <div class="modal fade" id="appointmentModal" tabindex="-1" aria-labelledby="appointmentModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content card-admin">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="appointmentModalLabel">Editar Agendamento</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="appointmentForm">
+                        <input type="hidden" id="appointmentId">
+                        <div class="mb-3">
+                            <label for="appointmentClient" class="form-label">Cliente</label>
+                            <select class="form-select" id="appointmentClient" required>
+                                <!-- Dinâmico via JS -->
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="appointmentService" class="form-label">Serviço</label>
+                            <select class="form-select" id="appointmentService" required>
+                                <!-- Dinâmico via JS -->
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="appointmentBarber" class="form-label">Barbeiro</label>
+                            <select class="form-select" id="appointmentBarber" required>
+                                <!-- Dinâmico via JS -->
+                            </select>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="appointmentDate" class="form-label">Data</label>
+                                <input type="date" class="form-control" id="appointmentDate" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="appointmentTime" class="form-label">Hora</label>
+                                <input type="time" class="form-control" id="appointmentTime" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="appointmentStatus" class="form-label">Status</label>
+                            <select class="form-select" id="appointmentStatus" required>
+                                                            <option value="Agendado">Agendado</option>
+                                <option value="Confirmado">Confirmado</option>
+                                <option value="Cancelado">Cancelado</option>
+                                <option value="Concluído">Concluído</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger me-auto" onclick="confirmDeleteAppointment(document.getElementById('appointmentId').value)">
+                        <i class="fas fa-trash me-1"></i> Excluir
+                    </button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-warning" onclick="saveAppointment()">Salvar Alterações</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para Adicionar Novo Serviço -->
+    <div class="modal fade" id="addServiceModal" tabindex="-1" aria-labelledby="addServiceModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content card-admin">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addServiceModalLabel">Adicionar Novo Serviço</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="addServiceForm">
+                        <div class="mb-3">
+                            <label for="newServiceName" class="form-label">Nome do Serviço</label>
+                            <input type="text" class="form-control" id="newServiceName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="newServiceDescription" class="form-label">Descrição</label>
+                            <textarea class="form-control" id="newServiceDescription" rows="3"></textarea>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="newServiceDuration" class="form-label">Duração (minutos)</label>
+                                <input type="number" class="form-control" id="newServiceDuration" min="5" step="5" value="30" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="newServicePrice" class="form-label">Preço (R$)</label>
+                                <input type="number" class="form-control" id="newServicePrice" min="0" step="0.01" value="50.00" required>
+                            </div>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="newServiceActive" checked>
+                            <label class="form-check-label" for="newServiceActive">Serviço ativo</label>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-warning" onclick="addService()">Adicionar Serviço</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para Adicionar Nova Assinatura -->
+    <div class="modal fade" id="addSubscriptionModal" tabindex="-1" aria-labelledby="addSubscriptionModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content card-admin">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addSubscriptionModalLabel">Adicionar Nova Assinatura</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="addSubscriptionForm">
+                        <div class="mb-3">
+                            <label for="newSubscriptionName" class="form-label">Nome da Assinatura</label>
+                            <input type="text" class="form-control" id="newSubscriptionName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="newSubscriptionDescription" class="form-label">Descrição</label>
+                            <textarea class="form-control" id="newSubscriptionDescription" rows="3"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="newSubscriptionServices" class="form-label">Serviços Incluídos</label>
+                            <select class="form-select" id="newSubscriptionServices" multiple>
+                                <!-- Dinâmico via JS -->
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="newSubscriptionPrice" class="form-label">Preço Mensal (R$)</label>
+                            <input type="number" class="form-control" id="newSubscriptionPrice" min="0" step="0.01" required>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="newSubscriptionActive" checked>
+                            <label class="form-check-label" for="newSubscriptionActive">Assinatura ativa</label>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-warning" onclick="addSubscription()">Adicionar Assinatura</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para Adicionar Novo Agendamento -->
+    <div class="modal fade" id="addAppointmentModal" tabindex="-1" aria-labelledby="addAppointmentModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content card-admin">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addAppointmentModalLabel">Adicionar Novo Agendamento</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="addAppointmentForm">
+                        <div class="mb-3">
+                            <label for="newAppointmentClient" class="form-label">Cliente</label>
+                            <select class="form-select" id="newAppointmentClient" required>
+                                <!-- Dinâmico via JS -->
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="newAppointmentService" class="form-label">Serviço</label>
+                            <select class="form-select" id="newAppointmentService" required>
+                                <!-- Dinâmico via JS -->
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="newAppointmentBarber" class="form-label">Barbeiro</label>
+                            <select class="form-select" id="newAppointmentBarber" required>
+                                <!-- Dinâmico via JS -->
+                            </select>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="newAppointmentDate" class="form-label">Data</label>
+                                <input type="date" class="form-control" id="newAppointmentDate" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="newAppointmentTime" class="form-label">Hora</label>
+                                <input type="time" class="form-control" id="newAppointmentTime" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="newAppointmentStatus" class="form-label">Status</label>
+                            <select class="form-select" id="newAppointmentStatus" required>
+                                <option value="Agendado">Agendado</option>
+                                <option value="Confirmado">Confirmado</option>
+                                <option value="Cancelado">Cancelado</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-warning" onclick="addAppointment()">Adicionar Agendamento</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  <!-- Botão "Voltar ao topo (seta)" -->
+  <button id="scrollToTopBtn" class="btn mb-8 mb-md-6 p-0 btn-warning rounded-pill shadow text-dark" onclick="scrollToTop()"><i class="fas fa-arrow-up p-3"></i></button>
+
+  <!-- === Footer === -->
+  <footer id="footer" class="footer fixed-bottom text-center text-lg-start">    
+    <section class="d-flex justify-content-center justify-content-lg-between p-3 border-bottom text-dark text-bg-warning">
+      <!-- Left -->
+      <div class="me-5 ms-5 d-none d-lg-block">
+        <a href="#!" class="small text-dark">Termos de uso.</a> |
+        <a href="#!" class="small text-dark">Politica de privacidade.</a>
+      </div>
+  
+      <!-- Right -->
+      <!-- Copyright -->
+      <div class="small mx-5 text-center text-bg-light bg-warning">Copyright &copy; 2024 - 2025 | DGM Web developer&reg;</div>
+    </section>
+  </footer>
+
+  <!-- Toast Container -->
+  <div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+    <div id="toastSuccess" class="toast text-bg-success" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-header">
+        <strong class="me-auto">Sucesso</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+      <div class="toast-body">
+        Operação realizada com sucesso!
+      </div>
+    </div>
+    <div id="toastError" class="toast text-bg-danger" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-header">
+        <strong class="me-auto">Erro</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+      <div class="toast-body">
+        Ocorreu um erro ao processar sua solicitação.
+      </div>
+    </div>
+  </div>
+
+<!-- Scripts -->
+  <!-- jQuery primeiro -->
+  <script src="https://code.jquery.com/jquery-3.7.1.slim.js" integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc=" crossorigin="anonymous"></script>
+  
+  <!-- Bootstrap Bundle com Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+  <!-- Custom JS -->
+  <!-- <script src="../../js/utils/user-logon.js"></script> -->
+  <script type="module" src="../../js/adm.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,184 @@
+/* === ESTILOS EXCLUSIVOS DO PAINEL ADMIN === */
+
+/* Cards de estatísticas */
+.stat-card {
+  text-align: center;
+  padding: 20px;
+  border-radius: 16px;
+  color: var(--branco);
+  margin-bottom: 20px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.stat-card i {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+.stat-card-1 {
+  background: linear-gradient(135deg, var(--azul-admin-claro), var(--azul-admin-escuro));
+}
+.stat-card-2 {
+  background: linear-gradient(135deg, var(--verde-admin-claro), var(--verde-admin-escuro));
+}
+.stat-card-3 {
+  background: linear-gradient(135deg, var(--ciano-admin-claro), var(--ciano-admin-escuro));
+}
+.stat-card-4 {
+  background: linear-gradient(135deg, var(--amarelo-admin-claro), var(--amarelo-admin-escuro));
+}
+
+/* Efeito hover nas linhas da tabela */
+.table-hover tbody tr:hover {
+  background-color: var(--admin-hover);
+}
+
+/* Barra de pesquisa */
+.search-box {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.search-box i {
+  position: absolute;
+  top: 12px;
+  left: 15px;
+  color: var(--cinza-escuro);
+}
+
+.search-box input {
+  padding-left: 40px;
+  border-radius: 20px;
+}
+
+/* Paginação */
+.pagination .page-link {
+  background-color: var(--admin-bg);
+  border: 1px solid var(--admin-border);
+  color: var(--amarelo);
+}
+
+.pagination .page-item.active .page-link {
+  background-color: var(--amarelo);
+  border-color: var(--amarelo);
+  color: var(--preto);
+}
+
+/* Sidebar específico do admin */
+.sidebar-admin {
+  background-color: var(--admin-sidebar);
+  border-right: 1px solid var(--admin-border);
+}
+
+.admin-main-content .card {
+  min-width: auto !important;
+  width: 100% !important;
+}
+
+/* Reset específico para elementos do admin */
+.sidebar-admin .nav-link {
+  color: var(--admin-text);
+  transition: all 0.3s;
+}
+
+.sidebar-admin .nav-link:hover,
+.sidebar-admin .nav-link.active {
+  color: var(--amarelo);
+}
+
+.sidebar-admin .nav-link.active {
+  background-color: var(--admin-link-active) !important;
+  border-left: 3px solid var(--amarelo);
+}
+
+.card-admin {
+  background-color: var(--admin-bg);
+  border: 1px solid var(--admin-border);
+  box-shadow: 0 4px 12px var(--admin-shadow);
+  transition: all 0.3s ease;
+}
+
+.card-admin .card-header {
+  background-color: var(--admin-header);
+  border-bottom: 1px solid var(--admin-border);
+}
+
+/* Responsividade para cards */
+@media (max-width: 768px) {
+  .stat-card-col {
+    margin-bottom: 20px;
+  }
+}
+
+/* Ajuste do offcanvas no mobile */
+.offcanvas {
+  width: 300px;
+  max-width: 85vw;
+}
+
+@media (max-width: 768px) {
+  .admin-main-content {
+    transition: transform 0.3s ease;
+  }
+
+  .offcanvas.show ~ .admin-main-content {
+    transform: translateX(300px);
+  }
+}
+
+/* Ajustes para o offcanvas mobile */
+.wrapper {
+  overflow-x: hidden;
+  align-items: stretch;
+  display: flex;
+  position: relative;
+  width: 100%;
+  margin: 2.6rem 0 3.6rem 0;
+}
+
+#sidebarAdminMobile {
+  width: 300px;
+  max-width: 85vw;
+}
+
+#sidebarAdminMobile .offcanvas-header {
+  background-color: var(--admin-sidebar);
+  border-bottom: 1px solid var(--admin-border);
+}
+
+#sidebarAdminMobile .offcanvas-body {
+  padding: 0;
+}
+
+#sidebarAdminMobile .nav-link {
+  border-radius: 0;
+  padding: 12px 20px;
+  border-left: 3px solid transparent;
+  color: var(--admin-text);
+}
+
+#sidebarAdminMobile .nav-link.active {
+  background-color: var(--admin-link-hover);
+  border-left: 3px solid var(--amarelo);
+}
+
+#sidebarAdminMobile .nav-link:hover:not(.active) {
+  background-color: var(--admin-hover);
+}
+
+@media (max-width: 768px) {
+  .stat-card-col {
+    margin-bottom: 20px;
+  }
+}
+
+.jb-nav-link:hover {
+  background: var(--amarelo);
+  border-radius: 0.5rem;
+  color: var(--preto)!important;
+  font-weight: bold !important;
+  transition: 0.25s ease-in-out;
+}
