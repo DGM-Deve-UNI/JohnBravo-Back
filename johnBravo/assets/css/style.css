@@ -67,6 +67,13 @@ body, footer, div, section, i, a, ul, li {
     transition: background 0.1s linear;
 }
 
+input:disabled,
+select:disabled,
+textarea:disabled,
+button:disabled {
+  cursor: not-allowed;
+}
+
 .bj-mt-4 {
     margin-top: 4.1rem !important;
 }

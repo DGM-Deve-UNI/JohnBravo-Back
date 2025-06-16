@@ -117,7 +117,7 @@
   <section class="wrapper d-flex flex-column flex-md-row">
     <!-- Botão para abrir sidebar no mobile -->
     <div class="w-md-100 d-flex justify-content-start border-bottom">
-      <button class="btn btn-sm fs-3 ms-2 btn-dark d-md-none mt-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu"><i class="fa-solid fa-indent"></i></button>
+      <button class="btn btn-sm fs-3 ms-2 d-md-none mt-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu"><img src="../../../imgs/icons/open-sidebar.svg" width="30" style="filter: invert();" alt=""></button>
     </div>
 <!-- ----------------------------------------------------------------------- -->
     <!-- Sidebar mobile -->
@@ -258,258 +258,665 @@
           </div>
         </div>
 <!-- ----------------------------------------------------------------------- -->
-        <div class="card rounded-4 card-admin mt-3" style="max-width: none !important;">
-          <!-- Cabeçalho -->
-          <div class="card-header rounded-top-4">
-            <div class="container">
-              <div class="row align-items-center">
-                <div class="col-6 p-0">Informações pessoais</div>
-                <div class="col-6 p-0 text-end"><a href="#" class="card-link"><i class="fa-solid fa-pen-to-square me-1"></i>Editar Informações</a></div>
-              </div>
+<div class="card rounded-4 card-admin mt-3" style="max-width: none !important;">
+  <!-- Cabeçalho -->
+  <div class="card-header rounded-top-4">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-6 p-0">Informações pessoais</div>
+        <div class="col-6 p-0 text-end">
+          <a href="#" class="card-link" id="edit-info-btn">
+            <i class="fa-solid fa-pen-to-square me-1"></i>Editar Informações
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Corpo (modo visualização) -->
+  <div class="card-body" id="info-view-mode">
+    <!-- Dados pessoais -->
+    <div class="my-4">
+      <div class="container d-flex flex-column m-0 gap-2">
+        <!-- Nome Completo -->
+          <div class="row m-0">
+            <div class="d-flex gap-0 gap-md-2 p-0 align-items-center col-12 col-md-4 fw-bold">
+              <i class="col-1 d-flex align-items-center justify-content-center fa-solid fa-user"></i><span>Nome Completo:</span>
+            </div>
+            <div class="col-12 col-md-8 border-bottom border-2 text-muted p-0 px-1 text-info-emphasis" id="user-name-info"></div>
+          </div>
+        <!-- Data de Nascimento -->
+          <div class="row m-0 mt-2">
+            <div class="d-flex gap-0 gap-md-2 p-0 align-items-center col-12 col-md-4 fw-bold">
+              <i class="col-1 d-flex align-items-center justify-content-center fa-solid fa-cake-candles"></i><span>Data de Nascimento:</span>
+            </div>
+            <div class="col-12 col-md-8 border-bottom border-2 text-muted p-0 px-1 text-info-emphasis" id="user-data-info"></div>
+          </div>
+        <!-- E-mail -->
+          <div class="row m-0 mt-2">
+            <div class="d-flex gap-0 gap-md-2 p-0 align-items-center col-12 col-md-4 fw-bold">
+              <i class="col-1 d-flex align-items-center justify-content-center fa-solid fa-envelope"></i><span>E-mail:</span>
+            </div>
+            <div class="col-12 col-md-8 border-bottom border-2 text-muted p-0 px-1 text-info-emphasis" id="user-email-info"></div>
+          </div>
+        <!-- Celular -->
+          <div class="row m-0 mt-2">
+            <div class="d-flex gap-0 gap-md-2 p-0 align-items-center col-12 col-md-4 fw-bold">
+              <i class="col-1 d-flex align-items-center justify-content-center fa-solid fa-mobile-screen-button"></i><span>Celular:</span>
+            </div>
+            <div class="col-12 col-md-8 border-bottom border-2 text-muted p-0 px-1 text-info-emphasis" id="user-cel-info"></div>
+          </div>
+        <!-- Telefone -->
+          <div class="row m-0 mt-2">
+            <div class="d-flex gap-0 gap-md-2 p-0 align-items-center col-12 col-md-4 fw-bold">
+              <i class="col-1 d-flex align-items-center justify-content-center fa-solid fa-phone"></i><span>Telefone:</span>
+            </div>
+            <div class="col-12 col-md-8 border-bottom border-2 p-0 px-1 text-info-emphasis" id="user-tel-info"></div>
+          </div>
+        <!-- Endereço Completo -->
+          <div class="row m-0 mt-2">
+            <div class="d-flex gap-0 gap-md-2 p-0 align-items-center col-12 col-md-4 fw-bold">
+              <i class="col-1 d-flex align-items-center justify-content-center fa-solid fa-location-dot"></i><span>Endereço:</span>
+            </div>
+            <div class="col-12 col-md-8 border-bottom border-2 text-muted p-0 px-1 text-info-emphasis">
+              <span id="user-endereco-info"></span>,
+              <span id="user-num_end-info"></span>,
+              <span id="user-bairro-info"></span>,
+              <span id="user-cidade-info"></span> -
+              <span id="user-estado-info"></span>,
+              CEP <span id="user-cep-info"></span>
             </div>
           </div>
-          <!-- Corpo -->
-          <div class="card-body">
-            <!-- Dados pessoais -->
+      </div>
+    </div>
+  </div>
+  
+  <!-- Corpo (modo edição) - Nova seção adicionada -->
+       <!-- Corpo (modo edição) -->
+        <div class="card-body d-none" id="info-edit-mode">
+          <form id="edit-info-form">
             <div class="my-4">
               <div class="container d-flex flex-column m-0 gap-2">
-                <!-- Nome Completo -->
-                  <div class="row m-0">
-                    <div class="d-flex gap-0 gap-md-2 p-0 align-items-center col-12 col-md-4 fw-bold">
-                      <i class="col-1 d-flex align-items-center justify-content-center fa-solid fa-user"></i><span>Nome Completo:</span>
-                    </div>
-                    <!-- Nome do usuário (dados do banco) -->
-                    <div class="col-12 col-md-8 border-bottom border-2 text-muted p-0 px-1 text-info-emphasis" id="user-name-info"></div>
+                <!-- Login (Nome de usuário) -->
+                <div class="row m-0">
+                  <div class="d-flex gap-0 gap-md-2 p-0 align-items-center col-12 col-md-4 fw-bold">
+                    <i class="col-1 d-flex align-items-center justify-content-center fa-solid fa-user-tag"></i>
+                    <label for="edit-login">Nome de Usuário:</label>
                   </div>
-                <!-- Data de Nascimento -->
-                  <div class="row m-0 mt-2">
-                    <div class="d-flex gap-0 gap-md-2 p-0 align-items-center col-12 col-md-4 fw-bold">
-                      <i class="col-1 d-flex align-items-center justify-content-center fa-solid fa-cake-candles"></i><span>Data de Nascimento:</span>
-                    </div>
-                    <!-- Data de Nascimento (dados do banco) -->
-                    <div class="col-12 col-md-8 border-bottom border-2 text-muted p-0 px-1 text-info-emphasis" id="user-data-info"></div>
+                  <div class="col-12 col-md-8 p-0 px-1">
+                    <input type="text" class="form-control" id="edit-login" required>
                   </div>
+                </div>
+                
+                <!-- Nome Completo (readonly) -->
+                <div class="row m-0 mt-2">
+                  <div class="d-flex gap-0 gap-md-2 p-0 align-items-center col-12 col-md-4 fw-bold">
+                    <i class="col-1 d-flex align-items-center justify-content-center fa-solid fa-user"></i>
+                    <label>Nome Completo:</label>
+                  </div>
+                  <div class="col-12 col-md-8 p-0 px-1">
+                    <input type="text" class="form-control" disabled id="edit-name" readonly>
+                  </div>
+                </div>
+                
+                <!-- Data de Nascimento (readonly) -->
+                <div class="row m-0 mt-2">
+                  <div class="d-flex gap-0 gap-md-2 p-0 align-items-center col-12 col-md-4 fw-bold">
+                    <i class="col-1 d-flex align-items-center justify-content-center fa-solid fa-cake-candles"></i>
+                    <label>Data de Nascimento:</label>
+                  </div>
+                  <div class="col-12 col-md-8 p-0 px-1">
+                    <input type="text" class="form-control" disabled id="edit-birthdate" readonly>
+                  </div>
+                </div>
+                
                 <!-- E-mail -->
-                  <div class="row m-0 mt-2">
-                    <div class="d-flex gap-0 gap-md-2 p-0 align-items-center col-12 col-md-4 fw-bold">
-                      <i class="col-1 d-flex align-items-center justify-content-center fa-solid fa-envelope"></i><span>E-mail:</span>
-                    </div>
-                    <!-- E-mail do usuário (dados do banco) -->
-                    <div class="col-12 col-md-8 border-bottom border-2 text-muted p-0 px-1 text-info-emphasis" id="user-email-info"></div>
+                <div class="row m-0 mt-2">
+                  <div class="d-flex gap-0 gap-md-2 p-0 align-items-center col-12 col-md-4 fw-bold">
+                    <i class="col-1 d-flex align-items-center justify-content-center fa-solid fa-envelope"></i>
+                    <label for="edit-email">E-mail:</label>
                   </div>
+                  <div class="col-12 col-md-8 p-0 px-1">
+                    <input type="email" class="form-control" id="edit-email" required>
+                  </div>
+                </div>
+                
+                <!-- Senha -->
+                <div class="row m-0 mt-2">
+                  <div class="d-flex gap-0 gap-md-2 p-0 align-items-center col-12 col-md-4 fw-bold">
+                    <i class="col-1 d-flex align-items-center justify-content-center fa-solid fa-lock"></i>
+                    <label for="edit-password">Nova Senha:</label>
+                  </div>
+                  <div class="col-12 col-md-8 p-0 px-1">
+                    <div class="input-group">
+                      <input type="password" class="form-control" id="edit-password" placeholder="Deixe em branco para manter a atual">
+                      <button class="btn btn-outline-secondary" type="button" id="togglePassword">
+                        <i class="fa fa-eye"></i>
+                      </button>
+                    </div>
+                    <small class="text-muted">Mínimo 8 caracteres</small>
+                  </div>
+                </div>
+                
                 <!-- Celular -->
-                  <div class="row m-0 mt-2">
-                    <div class="d-flex gap-0 gap-md-2 p-0 align-items-center col-12 col-md-4 fw-bold">
-                      <i class="col-1 d-flex align-items-center justify-content-center fa-solid fa-mobile-screen-button"></i><span>Celular:</span>
-                    </div>
-                    <!-- Celular do usuário (dados do banco) -->
-                    <div class="col-12 col-md-8 border-bottom border-2 text-muted p-0 px-1 text-info-emphasis" id="user-cel-info"></div>
+                <div class="row m-0 mt-2">
+                  <div class="d-flex gap-0 gap-md-2 p-0 align-items-center col-12 col-md-4 fw-bold">
+                    <i class="col-1 d-flex align-items-center justify-content-center fa-solid fa-mobile-screen-button"></i>
+                    <label for="edit-phone">Celular:</label>
                   </div>
+                  <div class="col-12 col-md-8 p-0 px-1">
+                    <input type="tel" class="form-control" id="edit-phone" placeholder="(00) 00000-0000" required>
+                  </div>
+                </div>
+                
                 <!-- Telefone -->
-                  <div class="row m-0 mt-2">
-                    <div class="d-flex gap-0 gap-md-2 p-0 align-items-center col-12 col-md-4 fw-bold">
-                      <i class="col-1 d-flex align-items-center justify-content-center fa-solid fa-phone"></i><span>Telefone:</span>
-                    </div>
-                    <!-- Telefone do usuário (dados do banco) -->
-                    <div class="col-12 col-md-8 border-bottom border-2 p-0 px-1 text-info-emphasis" id="user-tel-info"></div>
+                <div class="row m-0 mt-2">
+                  <div class="d-flex gap-0 gap-md-2 p-0 align-items-center col-12 col-md-4 fw-bold">
+                    <i class="col-1 d-flex align-items-center justify-content-center fa-solid fa-phone"></i>
+                    <label for="edit-tel">Telefone:</label>
                   </div>
+                  <div class="col-12 col-md-8 p-0 px-1">
+                    <input type="tel" class="form-control" id="edit-tel" placeholder="(00) 0000-0000">
+                  </div>
+                </div>
+                
                 <!-- Endereço Completo -->
-                  <div class="row m-0 mt-2">
-                    <div class="d-flex gap-0 gap-md-2 p-0 align-items-center col-12 col-md-4 fw-bold">
-                      <i class="col-1 d-flex align-items-center justify-content-center fa-solid fa-location-dot"></i><span>Endereço:</span>
-                    </div>
-                    <!-- Endereço do usuário (dados do banco) -->
-                    <div class="col-12 col-md-8 border-bottom border-2 text-muted p-0 px-1 text-info-emphasis">
-                      <span id="user-endereco-info"></span>,
-                      <span id="user-num_end-info"></span>,
-                      <span id="user-bairro-info"></span>,
-                      <span id="user-cidade-info"></span> -
-                      <span id="user-estado-info"></span>,
-                      CEP <span id="user-cep-info"></span>
-                    </div>
+                <div class="row m-0 mt-2">
+                  <div class="d-flex gap-0 gap-md-2 p-0 align-items-center col-12 col-md-4 fw-bold">
+                    <i class="col-1 d-flex align-items-center justify-content-center fa-solid fa-location-dot"></i>
+                    <label>Endereço:</label>
                   </div>
-              </div>
-            </div>
-          </div>
-          <!-- Rodapé -->
-          <div class="card-footer rounded-bottom-4">
-            <div class="container text-center">
-              <div class="row align-items-center">
-                <div class="p-0 text-end"><a href="#" class="card-link text-danger"><i class="fa-solid fa-trash me-1"></i>Excluir conta</a></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-<!-- ----------------------------------------------------------------------- -->
-      <!-- Dados de assinaturas -->
-      <div class="tab-pane fade show" id="assinaturas">
-        <h1>Assinaturas</h1>
-        <!-- Card informação -->
-        <div class="card rounded-4 mt-5" style="max-width: none !important;">
-          <div class="card-header p-4 rounded-4">
-            <card>
-              <blockquote class="blockquote mb-2">
-                <p>Suas Assinaturas serão exibidas aqui.</p>
-              </blockquote>
-              <span class="text-secondary">
-                Quando você assinar um plano, poderá visualizar e gerenciar suas assinaturas aqui.
-              </span>
-            </card>
-          </div>
-        </div>
-      </div>
-<!-- ----------------------------------------------------------------------- -->
-      <!-- Dados de agendamentos -->
-      <div class="tab-pane fade show" id="agendamentos">
-        <h1>Agendamentos</h1>
-        <!-- Card informação -->
-        <div class="card rounded-4 mt-5" style="max-width: none !important;">
-          <div class="card-header p-4 rounded-4">
-            <card>
-              <blockquote class="blockquote mb-2">
-                <p>Seus agendamentos serão exibidas aqui.</p>
-              </blockquote>
-              <span class="text-secondary">
-                Quando você agendar um serviço, poderá visualizar e gerenciar seus agendamentos aqui.
-              </span>
-            </card>
-          </div>
-        </div>
-      </div>
-<!-- ----------------------------------------------------------------------- -->
-      <!-- Dados de pagamento -->
-      <div class="tab-pane fade show" id="pagamento">
-        <h1>Opções de Pagamento</h1>
-        <!-- Card informação -->
-        <div class="card rounded-4 mt-5">
-          <div class="card-header p-4 rounded-4">
-            <card>
-              <blockquote class="blockquote mb-2">
-                <p>Nenhum método de pagamento</p>
-              </blockquote>
-              <span class="text-secondary">
-                Você ainda não possui nenhum método de pagamento cadastrado. Você pode adicionar um novo método de pagamento aqui.
-              </span>
-            </card>
-            <br><br>
-            <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal" class="card-link">Adicionar método de pagamento</a>
-          </div>
-        </div>
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog rounded-4">
-            <div class="modal-content card-admin shadow-4-strong rounded-4 border border-3">
-              <div class="modal-header rounded-4 rounded-bottom-0 bg-black text-white">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Adicionar um cartão de crédito/débito</h1>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
-              </div>
-
-              <div class="modal-body">
-                <p class="text-secondary text-center">Esse será o seu novo método de pagamento padrão</p>
-
-                <div id="cardFields">
-                  <!-- Bandeiras -->
-                  <div class="mb-3">
-                    <p class="m-0 p-0">Aceitamos os cartões a seguir</p>
-                    <img src="https://pmservices.cp.microsoft.com/staticresourceservice/images/v4/logo_visa.svg" alt="Visa" style="width: 48px; height: 48px;">
-                    <img src="https://pmservices.cp.microsoft.com/staticresourceservice/images/v4/logo_amex.svg" alt="Amex" style="width: 48px; height: 48px;">
-                    <img src="https://pmservices.cp.microsoft.com/staticresourceservice/images/v4/logo_mc.svg" alt="MasterCard" style="width: 48px; height: 48px;">
-                    <img src="https://pmservices.cp.microsoft.com/staticresourceservice/images/v4/logo_elo.svg" alt="Elo" style="width: 48px; height: 48px;">
-                    <img src="https://pmservices.cp.microsoft.com/staticresourceservice/images/v4/logo_hipercard.svg" alt="Hipercard" style="width: 48px; height: 48px;">
-                  </div>
-                  <hr>
-                  <b>Detalhes do cartão</b><br><br>
-
-                  <!-- Nome -->
-                  <div class="mb-3">
-                    <label for="modalCardName" class="form-label">Nome do titular do cartão</label>
-                    <input type="text" class="form-control" id="modalCardName" required>
-                    <div class="invalid-feedback">Digite um nome válido com pelo menos 3 letras no início.</div>
-                  </div>
-
-                  <!-- Número -->
-                  <div class="mb-3">
-                    <label for="modalCardNumber" class="form-label">Número do Cartão</label>
-                    <input type="text" class="form-control" id="modalCardNumber" required>
-                    <div class="invalid-feedback">Digite um número de cartão válido com 16 dígitos.</div>
-                  </div>
-
-                  <!-- Validade e CVV -->
-                  <div class="row">
-                    <div class="col-md-6 mb-3">
-                      <label for="modalExpiry" class="form-label">Validade</label>
-                      <input type="text" class="form-control" id="modalExpiry" placeholder="MM/AA" required>
-                      <div class="invalid-feedback">Informe uma validade no formato MM/AA.</div>
-                    </div>
-
-                    <div class="col-md-6 mb-3">
-                      <label for="modalCvv" class="form-label">CVV</label>
-                      <input type="text" class="form-control" id="modalCvv" maxlength="4" required>
-                      <div class="invalid-feedback">Informe um CVV válido (3 ou 4 dígitos).</div>
+                  <div class="col-12 col-md-8 p-0 px-1">
+                    <div class="row g-2">
+                      <div class="col-md-8">
+                        <input type="text" class="form-control" id="edit-address" placeholder="Endereço" required>
+                      </div>
+                      <div class="col-md-4">
+                        <input type="text" class="form-control" id="edit-number" placeholder="Número" required>
+                      </div>
+                      <div class="col-md-6">
+                        <input type="text" class="form-control" id="edit-neighborhood" placeholder="Bairro" required>
+                      </div>
+                      <div class="col-md-6">
+                        <input type="text" class="form-control" id="edit-city" placeholder="Cidade" required>
+                      </div>
+                      <div class="col-md-4">
+                        <select class="form-select" id="edit-state" required>
+                          <option value="">Selecione o seu estado</option>
+                          <option value="AC">Acre</option>
+                          <option value="AL">Alagoas</option>
+                          <option value="AP">Amapá</option>
+                          <option value="AM">Amazonas</option>
+                          <option value="BA">Bahia</option>
+                          <option value="CE">Ceará</option>
+                          <option value="DF">Distrito Federal</option>
+                          <option value="ES">Espírito Santo</option>
+                          <option value="GO">Goiás</option>
+                          <option value="MA">Maranhão</option>
+                          <option value="MT">Mato Grosso</option>
+                          <option value="MS">Mato Grosso do Sul</option>
+                          <option value="MG">Minas Gerais</option>
+                          <option value="PA">Pará</option>
+                          <option value="PB">Paraíba</option>
+                          <option value="PR">Paraná</option>
+                          <option value="PE">Pernambuco</option>
+                          <option value="PI">Piauí</option>
+                          <option value="RJ">Rio de Janeiro</option>
+                          <option value="RN">Rio Grande do Norte</option>
+                          <option value="RS">Rio Grande do Sul</option>
+                          <option value="RO">Rondônia</option>
+                          <option value="RR">Roraima</option>
+                          <option value="SC">Santa Catarina</option>
+                          <option value="SP">São Paulo</option>
+                          <option value="SE">Sergipe</option>
+                          <option value="TO">Tocantins</option>
+                        </select>
+                      </div>
+                      <div class="col-md-4">
+                        <input type="text" class="form-control" id="edit-zip" placeholder="CEP" required>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-
-              <div class="modal-footer text-bg-warning rounded-top-0 rounded-4">
-                <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Fechar</button>
-                <button type="button" class="btn btn-success" id="btnSalvarCartao">Salvar</button>
+            </div>
+            
+            <!-- Botões de ação -->
+            <div class="d-flex justify-content-end gap-2 mt-3">
+              <button type="button" class="btn btn-secondary" id="cancel-edit-btn">Cancelar</button>
+              <button type="submit" class="btn btn-warning">Salvar Alterações</button>
+            </div>
+          </form>
+        </div>
+        
+        <!-- Rodapé -->
+        <div class="card-footer rounded-bottom-4">
+          <div class="container text-center">
+            <div class="row align-items-center">
+              <div class="p-0 text-end">
+                <a href="#" class="card-link text-danger" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal">
+                  <i class="fa-solid fa-trash me-1"></i>Excluir conta
+                </a>
               </div>
-            </div>
-          </div>
-        </div>
-        <!-- Toast de Sucesso -->
-        <div class="toast-container position-fixed bottom-0 end-0 p-3 mb-5" style="z-index: 11">
-          <div id="toastSuccess" class="toast text-bg-success" role="alert" aria-live="assertive" aria-atomic="true">
-            <div class="toast-header">
-              <strong class="me-auto">Sucesso</strong>
-              <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-            </div>
-            <div class="toast-body">
-              Cartão salvo com sucesso!
-            </div>
-          </div>
-        </div>
-        <!-- Toast de Erro -->
-        <div class="toast-container position-fixed bottom-0 end-0 p-3 mb-5" style="z-index: 11">
-          <div id="toastError" class="toast text-bg-danger" role="alert" aria-live="assertive" aria-atomic="true">
-            <div class="toast-header">
-              <strong class="me-auto">Erro</strong>
-              <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-            </div>
-            <div class="toast-body">
-              Por favor, preencha todos os campos corretamente.
-            </div>
-          </div>
-        </div>  
-      </div>
-<!-- ----------------------------------------------------------------------- -->
-      <!-- Histórico de agendamentos -->
-      <div class="tab-pane fade show" id="historicoAgendamento">
-        <h1>Histórico de Agendamento</h1>
-        <!-- Card informação -->
-        <div class="card rounded-4 mt-5" style="max-width: none !important;">
-          <div class="card-header p-4 rounded-4">
-            <card>
-              <blockquote class="blockquote mb-2">
-                <p>Nenhum agendamento feito até o momento.</p>
-              </blockquote>
-              <span class="text-secondary">
-                O historico de agendamentos será exibido aqui. Você pode visualizar os detalhes de cada agendamento.
-              </span>
-            </card>
-              <br><br>
-            <div class="d-grid gap-2 col-6 mx-auto ">
-              <a type="button" href="assets/html/pages/agendar.html" 
-                  class="dynamic-links btn btn-lg btn-warning text-white jb-font-Lalezar ativo-custom">
-                  Agendar agora
-              </a>
             </div>
           </div>
         </div>
       </div>
     </div>
+
+  <!-- Modal de Confirmação para Excluir Conta -->
+  <div class="modal fade" id="confirmDeleteModal" tabindex="-1" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content card-admin">
+        <div class="modal-header bg-danger text-white">
+          <h5 class="modal-title" id="confirmDeleteModalLabel">Confirmar Exclusão</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Tem certeza que deseja excluir sua conta permanentemente? Esta ação não pode ser desfeita.</p>
+          <p class="text-danger"><strong>Todos os seus dados serão perdidos!</strong></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-danger" id="confirmDeleteBtn">Sim, Excluir Minha Conta</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const editBtn = document.getElementById('edit-info-btn');
+      const cancelBtn = document.getElementById('cancel-edit-btn');
+      const viewMode = document.getElementById('info-view-mode');
+      const editMode = document.getElementById('info-edit-mode');
+      const editForm = document.getElementById('edit-info-form');
+      
+      // Preencher os campos de edição com os dados atuais
+      function populateEditFields() {
+        document.getElementById('edit-login').value = document.getElementById('login_user').textContent;
+        document.getElementById('edit-name').value = document.getElementById('user-name-info').textContent;
+        document.getElementById('edit-birthdate').value = document.getElementById('user-data-info').textContent;
+        document.getElementById('edit-email').value = document.getElementById('user-email-info').textContent;
+        document.getElementById('edit-phone').value = document.getElementById('user-cel-info').textContent;
+        document.getElementById('edit-tel').value = document.getElementById('user-tel-info').textContent;
+        document.getElementById('edit-address').value = document.getElementById('user-endereco-info').textContent;
+        document.getElementById('edit-number').value = document.getElementById('user-num_end-info').textContent;
+        document.getElementById('edit-neighborhood').value = document.getElementById('user-bairro-info').textContent;
+        document.getElementById('edit-city').value = document.getElementById('user-cidade-info').textContent;
+        document.getElementById('edit-state').value = document.getElementById('user-estado-info').textContent;
+        document.getElementById('edit-zip').value = document.getElementById('user-cep-info').textContent;
+      }
+      
+      // Alternar entre modos de visualização e edição
+      editBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        viewMode.classList.add('d-none');
+        editMode.classList.remove('d-none');
+        populateEditFields();
+      });
+      
+      cancelBtn.addEventListener('click', function() {
+        viewMode.classList.remove('d-none');
+        editMode.classList.add('d-none');
+      });
+      
+      // Enviar formulário de edição
+      editForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Aqui você adicionaria a lógica para enviar os dados para o servidor
+        // Exemplo:
+        /*
+        const formData = {
+          name: document.getElementById('edit-name').value,
+          // outros campos...
+        };
+        
+        fetch('/api/update-profile', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData)
+        })
+        .then(response => response.json())
+        .then(data => {
+          // Atualizar a visualização com os novos dados
+          document.getElementById('user-name-info').textContent = data.name;
+          // outros campos...
+          
+          // Voltar para o modo de visualização
+          viewMode.classList.remove('d-none');
+          editMode.classList.add('d-none');
+          
+          // Mostrar mensagem de sucesso
+          alert('Dados atualizados com sucesso!');
+        })
+        .catch(error => {
+          console.error('Erro:', error);
+          alert('Erro ao atualizar dados');
+        });
+        */
+        
+        // Por enquanto, apenas simulamos o comportamento
+        alert('Dados seriam enviados para o servidor aqui');
+        viewMode.classList.remove('d-none');
+        editMode.classList.add('d-none');
+      });
+      
+      // Máscaras para campos de telefone e CEP
+      $('#edit-phone').mask('(00) 00000-0000');
+      $('#edit-tel').mask('(00) 0000-0000');
+      $('#edit-zip').mask('00000-000');
+    });
+  </script> -->
+
+
+  <!-- Script atualizado -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const editBtn = document.getElementById('edit-info-btn');
+      const cancelBtn = document.getElementById('cancel-edit-btn');
+      const viewMode = document.getElementById('info-view-mode');
+      const editMode = document.getElementById('info-edit-mode');
+      const editForm = document.getElementById('edit-info-form');
+      const togglePassword = document.getElementById('togglePassword');
+      const confirmDeleteBtn = document.getElementById('confirmDeleteBtn');
+      
+      // Função para preencher todos os campos de edição com os dados atuais
+      function populateEditFields() {
+        // Preencher os campos de edição com os dados atuais
+        document.getElementById('edit-login').value = document.getElementById('login_user').textContent;
+        document.getElementById('edit-name').value = document.getElementById('user-name-info').textContent;
+        document.getElementById('edit-birthdate').value = document.getElementById('user-data-info').textContent;
+        document.getElementById('edit-email').value = document.getElementById('user-email-info').textContent;
+        document.getElementById('edit-phone').value = document.getElementById('user-cel-info').textContent;
+        document.getElementById('edit-tel').value = document.getElementById('user-tel-info').textContent;
+        document.getElementById('edit-address').value = document.getElementById('user-endereco-info').textContent;
+        document.getElementById('edit-number').value = document.getElementById('user-num_end-info').textContent;
+        document.getElementById('edit-neighborhood').value = document.getElementById('user-bairro-info').textContent;
+        document.getElementById('edit-city').value = document.getElementById('user-cidade-info').textContent;
+        document.getElementById('edit-state').value = document.getElementById('user-estado-info').textContent;
+        document.getElementById('edit-zip').value = document.getElementById('user-cep-info').textContent;
+      
+        // Limpar campo de senha
+        document.getElementById('edit-password').value = '';
+      }
+
+      // Alternar entre modos de visualização e edição
+      editBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        viewMode.classList.add('d-none');
+        editMode.classList.remove('d-none');
+        populateEditFields(); // Chamar a função para preencher os campos
+      });
+      
+      // Mostrar/esconder senha
+      togglePassword.addEventListener('click', function() {
+        const passwordInput = document.getElementById('edit-password');
+        const icon = this.querySelector('i');
+        
+        if (passwordInput.type === 'password') {
+          passwordInput.type = 'text';
+          icon.classList.remove('fa-eye');
+          icon.classList.add('fa-eye-slash');
+        } else {
+          passwordInput.type = 'password';
+          icon.classList.remove('fa-eye-slash');
+          icon.classList.add('fa-eye');
+        }
+      });
+      
+      // Alternar entre modos de visualização e edição
+      editBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        viewMode.classList.add('d-none');
+        editMode.classList.remove('d-none');
+      });
+      
+      cancelBtn.addEventListener('click', function() {
+        viewMode.classList.remove('d-none');
+        editMode.classList.add('d-none');
+      });
+      
+      // Enviar formulário de edição
+      editForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Validar senha se foi preenchida
+        const password = document.getElementById('edit-password').value;
+        if (password && password.length < 8) {
+          alert('A senha deve ter no mínimo 8 caracteres');
+          return;
+        }
+        
+        // Aqui você adicionaria a lógica para enviar os dados para o servidor
+        const formData = {
+          login: document.getElementById('edit-login').value,
+          email: document.getElementById('edit-email').value,
+          password: password || null, // Envia null se não foi alterada
+          phone: document.getElementById('edit-phone').value,
+          tel: document.getElementById('edit-tel').value,
+          address: document.getElementById('edit-address').value,
+          number: document.getElementById('edit-number').value,
+          neighborhood: document.getElementById('edit-neighborhood').value,
+          city: document.getElementById('edit-city').value,
+          state: document.getElementById('edit-state').value,
+          zip: document.getElementById('edit-zip').value
+        };
+        
+        console.log('Dados para enviar:', formData);
+        
+        // Simulação de envio para o servidor
+        setTimeout(() => {
+          // Atualizar a visualização com os novos dados
+          document.getElementById('user-login-view').textContent = formData.login;
+          document.getElementById('user-email-info').textContent = formData.email;
+          document.getElementById('user-cel-info').textContent = formData.phone;
+          document.getElementById('user-tel-info').textContent = formData.tel;
+          document.getElementById('user-endereco-info').textContent = formData.address;
+          document.getElementById('user-num_end-info').textContent = formData.number;
+          document.getElementById('user-bairro-info').textContent = formData.neighborhood;
+          document.getElementById('user-cidade-info').textContent = formData.city;
+          document.getElementById('user-estado-info').textContent = formData.state;
+          document.getElementById('user-cep-info').textContent = formData.zip;
+          
+          // Voltar para o modo de visualização
+          viewMode.classList.remove('d-none');
+          editMode.classList.add('d-none');
+          
+          // Mostrar mensagem de sucesso
+          alert('Dados atualizados com sucesso!');
+        }, 1000);
+      });
+      
+      // Excluir conta
+      confirmDeleteBtn.addEventListener('click', function() {
+        // Aqui você adicionaria a lógica para excluir a conta no servidor
+        console.log('Conta excluída');
+        
+        // Simulação de exclusão
+        setTimeout(() => {
+          // Redirecionar para a página inicial deslogado
+          window.location.href = '../../../../index.html';
+        }, 1000);
+      });
+      
+      // Máscaras para campos
+      $('#edit-phone').mask('(00) 00000-0000');
+      $('#edit-tel').mask('(00) 0000-0000');
+      $('#edit-zip').mask('00000-000');
+    });
+  </script>
+    
+    <!-- Dados de assinaturas -->
+    <div class="tab-pane fade" id="assinaturas">
+      <h1>Assinaturas</h1>
+      <!-- Card informação -->
+      <div class="card rounded-4 mt-5" style="max-width: none !important;">
+        <div class="card-header p-4 rounded-4">
+          <card>
+            <blockquote class="blockquote mb-2">
+              <p>Suas Assinaturas serão exibidas aqui.</p>
+            </blockquote>
+            <span class="text-secondary">
+              Quando você assinar um plano, poderá visualizar e gerenciar suas assinaturas aqui.
+            </span>
+          </card>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Dados de agendamentos -->
+    <div class="tab-pane fade" id="agendamentos">
+      <h1>Agendamentos</h1>
+      <!-- Card informação -->
+      <div class="card rounded-4 mt-5" style="max-width: none !important;">
+        <div class="card-header p-4 rounded-4">
+          <card>
+            <blockquote class="blockquote mb-2">
+              <p>Seus agendamentos serão exibidas aqui.</p>
+            </blockquote>
+            <span class="text-secondary">
+              Quando você agendar um serviço, poderá visualizar e gerenciar seus agendamentos aqui.
+            </span>
+          </card>
+        </div>
+      </div>
+    </div>
+    
+        <!-- Dados de pagamento -->
+        <div class="tab-pane fade show" id="pagamento">
+          <h1>Opções de Pagamento</h1>
+          <!-- Card informação -->
+          <div class="card rounded-4 mt-5">
+            <div class="card-header p-4 rounded-4">
+              <card>
+                <blockquote class="blockquote mb-2">
+                  <p>Nenhum método de pagamento</p>
+                </blockquote>
+                <span class="text-secondary">
+                  Você ainda não possui nenhum método de pagamento cadastrado. Você pode adicionar um novo método de pagamento aqui.
+                </span>
+              </card>
+              <br><br>
+              <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal" class="card-link">Adicionar método de pagamento</a>
+            </div>
+          </div>
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog rounded-4">
+              <div class="modal-content card-admin shadow-4-strong rounded-4 border border-3">
+                <div class="modal-header rounded-4 rounded-bottom-0 bg-black text-white">
+                  <h1 class="modal-title fs-5" id="exampleModalLabel">Adicionar um cartão de crédito/débito</h1>
+                  <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+  
+                <div class="modal-body">
+                  <p class="text-secondary text-center">Esse será o seu novo método de pagamento padrão</p>
+  
+                  <div id="cardFields">
+                    <!-- Bandeiras -->
+                    <div class="mb-3">
+                      <p class="m-0 p-0">Aceitamos os cartões a seguir</p>
+                      <img src="https://pmservices.cp.microsoft.com/staticresourceservice/images/v4/logo_visa.svg" alt="Visa" style="width: 48px; height: 48px;">
+                      <img src="https://pmservices.cp.microsoft.com/staticresourceservice/images/v4/logo_amex.svg" alt="Amex" style="width: 48px; height: 48px;">
+                      <img src="https://pmservices.cp.microsoft.com/staticresourceservice/images/v4/logo_mc.svg" alt="MasterCard" style="width: 48px; height: 48px;">
+                      <img src="https://pmservices.cp.microsoft.com/staticresourceservice/images/v4/logo_elo.svg" alt="Elo" style="width: 48px; height: 48px;">
+                      <img src="https://pmservices.cp.microsoft.com/staticresourceservice/images/v4/logo_hipercard.svg" alt="Hipercard" style="width: 48px; height: 48px;">
+                    </div>
+                    <hr>
+                    <b>Detalhes do cartão</b><br><br>
+  
+                    <!-- Nome -->
+                    <div class="mb-3">
+                      <label for="modalCardName" class="form-label">Nome do titular do cartão</label>
+                      <input type="text" class="form-control" id="modalCardName" required>
+                      <div class="invalid-feedback">Digite um nome válido com pelo menos 3 letras no início.</div>
+                    </div>
+  
+                    <!-- Número -->
+                    <div class="mb-3">
+                      <label for="modalCardNumber" class="form-label">Número do Cartão</label>
+                      <input type="text" class="form-control" id="modalCardNumber" required>
+                      <div class="invalid-feedback">Digite um número de cartão válido com 16 dígitos.</div>
+                    </div>
+  
+                    <!-- Validade e CVV -->
+                    <div class="row">
+                      <div class="col-md-6 mb-3">
+                        <label for="modalExpiry" class="form-label">Validade</label>
+                        <input type="text" class="form-control" id="modalExpiry" placeholder="MM/AA" required>
+                        <div class="invalid-feedback">Informe uma validade no formato MM/AA.</div>
+                      </div>
+  
+                      <div class="col-md-6 mb-3">
+                        <label for="modalCvv" class="form-label">CVV</label>
+                        <input type="text" class="form-control" id="modalCvv" maxlength="4" required>
+                        <div class="invalid-feedback">Informe um CVV válido (3 ou 4 dígitos).</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+  
+                <div class="modal-footer text-bg-warning rounded-top-0 rounded-4">
+                  <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Fechar</button>
+                  <button type="button" class="btn btn-success" id="btnSalvarCartao">Salvar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Toast de Sucesso -->
+          <div class="toast-container position-fixed bottom-0 end-0 p-3 mb-5" style="z-index: 11">
+            <div id="toastSuccess" class="toast text-bg-success" role="alert" aria-live="assertive" aria-atomic="true">
+              <div class="toast-header">
+                <strong class="me-auto">Sucesso</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+              </div>
+              <div class="toast-body">
+                Cartão salvo com sucesso!
+              </div>
+            </div>
+          </div>
+          <!-- Toast de Erro -->
+          <div class="toast-container position-fixed bottom-0 end-0 p-3 mb-5" style="z-index: 11">
+            <div id="toastError" class="toast text-bg-danger" role="alert" aria-live="assertive" aria-atomic="true">
+              <div class="toast-header">
+                <strong class="me-auto">Erro</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+              </div>
+              <div class="toast-body">
+                Por favor, preencha todos os campos corretamente.
+              </div>
+            </div>
+          </div>  
+        </div>
+    
+    <!-- Histórico de agendamentos -->
+    <div class="tab-pane fade" id="historicoAgendamento">
+      <h1>Histórico de Agendamento</h1>
+      <!-- Card informação -->
+      <div class="card rounded-4 mt-5" style="max-width: none !important;">
+        <div class="card-header p-4 rounded-4">
+          <card>
+            <blockquote class="blockquote mb-2">
+              <p>Nenhum agendamento feito até o momento.</p>
+            </blockquote>
+            <span class="text-secondary">
+              O historico de agendamentos será exibido aqui. Você pode visualizar os detalhes de cada agendamento.
+            </span>
+          </card>
+            <br><br>
+          <div class="d-grid gap-2 col-6 mx-auto ">
+            <a type="button" href="assets/html/pages/agendar.html" 
+                class="dynamic-links btn btn-lg btn-warning text-white jb-font-Lalezar ativo-custom">
+                Agendar agora
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   </section>
 <!-- ----------------------------------------------------------------------- -->
   <!-- Botão "Voltar ao topo (seta)" -->
