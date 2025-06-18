@@ -245,3 +245,40 @@ button:disabled {
 .btn-upload {
   opacity: 1;
 }
+
+.table>:not(caption)>*>* {
+  padding: 0.5rem 0.5rem;
+  color: var(--bs-table-color-state, var(--bs-table-color-type, var(--bs-table-color)));
+  background-color: var(--bs-table-bg);
+  border-width: var(--bs-border-width); /* bordas completas */
+  border-style: solid;
+  border-color: var(--bs-border-color, #dee2e6); /* cor de borda padrão */
+  box-shadow: inset 0 0 0 9999px var(--bs-table-bg-state, var(--bs-table-bg-type, var(--bs-table-accent-bg)));
+}
+
+.js-table>:not(caption)>*>* {
+  padding: 0.5rem 0.5rem;
+  color: var(--bs-table-color-state, var(--bs-table-color-type, var(--bs-table-color)));
+  background-color: var(--bs-table-bg);
+  border-width: var(--bs-border-width); /* bordas completas */
+  border-style: solid;
+  border-color: var(--bs-border-color, #dee2e6);
+  box-shadow: inset 0 0 0 9999px var(--bs-table-bg-state, var(--bs-table-bg-type, var(--bs-table-accent-bg)));
+}
+
+.page-item.disabled .page-link {
+  pointer-events: painted !important;
+  cursor: not-allowed !important; /* força o cursor proibido */
+  opacity: 0.6;
+}
+
+.page-item:not(.disabled):not(.active) .page-link:hover {
+  background-color: #e9ecef;
+  color: #000;
+}
+
+.page-item.active .page-link {
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+  color: #fff;
+}
