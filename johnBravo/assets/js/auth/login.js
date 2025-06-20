@@ -41,7 +41,7 @@ async function login(event) {
 
   try {
     const basePath = window.location.pathname.split("/")[1];
-    const apiUrl = `${window.location.origin}/${basePath}/back-end/src/login.php`;
+    const apiUrl = `${window.location.origin}/${basePath}/back-end/src/usuario/login.php`;
     const response = await fetch(apiUrl, {
       method: "POST",
       headers: { "Content-Type": "application/json" },

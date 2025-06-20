@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
   async function loadClients(search = "", page = 1) {
     try {
       const res = await fetch(
-        `../../../../back-end/src/pesquisarUsuario.php?pesquisa=${encodeURIComponent(
+        `../../../../back-end/src/usuario/pesquisarUsuario.php?pesquisa=${encodeURIComponent(
           search
         )}&page=${page}`
       );
@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
     //   data.porPagina = 5;
 
 
-      console.log("Resposta da API:", data);
+      // console.log("Resposta da API:", data);
 
       if (data.success) {
         tbody.innerHTML = "";

@@ -1,6 +1,6 @@
 <?php // -====- Recebe dados do cadastro e envia ao servidor -====- \\
     header('Content-Type: application/json');
-    include_once('../config/db_connect.php');
+    include_once('../../config/db_connect.php');
 // ===========================================================================\\
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // ----- Coleta os dados do formulário ----- \\

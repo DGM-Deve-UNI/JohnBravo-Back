@@ -1,6 +1,6 @@
 <?php // -====- Realiza requisição ao banco para realizar login -====- \\
     header('Content-Type: application/json');
-    include_once('../config/db_connect.php');
+    include_once('../../config/db_connect.php');
 // ===========================================================================\\
     if ($db_connect->connect_error) {
         echo json_encode(['success' => false, 'message' => 'Erro de conexão com o banco de dados']);

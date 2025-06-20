@@ -285,7 +285,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     try {
       const basePath = window.location.pathname.split("/")[1];
-      const apiUrl = `${window.location.origin}/${basePath}/back-end/src/cadastro.php`;
+      const apiUrl = `${window.location.origin}/${basePath}/back-end/src/usuario/cad-usuario.php`;
       const response = await fetch(apiUrl, {
         method: "POST",
         body: formData,
